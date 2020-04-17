@@ -1,9 +1,9 @@
 #ifndef LIST_PARENT_H_INCLUDED
 #define LIST_PARENT_H_INCLUDED
 #include <iostream>
-#define first(L) L.first
-#define next(P) P->next
-#define info(P) P->info
+#define first_parent(L) L.first_parent
+#define next_parent(P) P->next_parent
+#define info_parent(P) P->info_parent
 
 using namespace std;
 
