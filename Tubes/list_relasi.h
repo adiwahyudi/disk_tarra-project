@@ -1,7 +1,7 @@
 #ifndef LIST_RELASI_H_INCLUDED
 #define LIST_RELASI_H_INCLUDED
 
-#define next(P) P->next_relasi
+#define next_relasi(P) P->next_relasi
 #define first_relasi(L) L.first_relasi
 #define child(P) P->child
 #define parent(P) P->parent
@@ -20,17 +20,17 @@ struct elmlist_relasi {
 struct List_relasi {
     address_relasi first;
 };
-void createList(List_child &L);
-void insertFirst(List_child &L, address_child P);
-void insertLast(List_child &L, address_child P);
-void insertAfter(List_child &L, address_child Prec, address_child P);
-void deleteFirst(List_child &L, address_child &P);
-void deleteLast(List_child &L, address_child &P);
-void deleteAfter(List_child &L, address_child Prec, address_child &P);
+void createList(List_relasi &L);
+void insertFirst(List_relasi &L, address_relasi P);
+void insertLast(List_relasi &L, address_relasi P);
+void insertAfter(address_relasi Prec, address_relasi P);
+void deleteFirst(List_relasi &L, address_relasi &P);
+void deleteLast(List_relasi &L, address_relasi &P);
+void deleteAfter(address_relasi Prec, address_relasi &P);
 
-address_child alokasi(infotype_child x);
-void dealokasi(address_child &P);
-address_child findElm(List_child L, infotype_child x);
-void printInfo(List_child L);
+address_relasi alokasi( address_parent P, address_child C);
+void dealokasi(address_relasi &P);
+address_relasi findElm(List_relasi L, address_parent P, address_child C);
+void printInfo(List_relasi L);
 
 #endif // LIST_RELASI_H_INCLUDED
