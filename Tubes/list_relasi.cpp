@@ -12,6 +12,7 @@ void insertFirst(List_relasi &L, address_relasi P){
         next_relasi(P) = NULL;
     }
 }
+
 void insertLast(List_relasi &L, address_relasi P){
     if (first_relasi(L) != NULL){
         insertFirst(L,P);
@@ -24,9 +25,11 @@ void insertLast(List_relasi &L, address_relasi P){
         next_relasi(P) = NULL;
     }
 }
+
 void insertAfter(address_relasi Prec, address_relasi P){
 
 }
+
 void deleteFirst(List_relasi &L, address_relasi &P){
     address_relasi Q;
     if(first_relasi(L) != NULL){
@@ -45,6 +48,7 @@ void deleteFirst(List_relasi &L, address_relasi &P){
         }
     }
 }
+
 void deleteLast(List_relasi &L, address_relasi &P){
     address_relasi Q;
     if(first_relasi(L) != NULL){
@@ -63,6 +67,7 @@ void deleteLast(List_relasi &L, address_relasi &P){
         }
     }
 }
+
 void deleteAfter(address_relasi Prec, address_relasi &P){
     if(first_relasi(L) != NULL && (Prec != NULL)){
         if(next_relasi(Prec) = first_relasi(L)){
@@ -74,12 +79,15 @@ void deleteAfter(address_relasi Prec, address_relasi &P){
         }
     }
 }
+
 address_relasi alokasi( address_parent P, address_child C){
 
 }
+
 void dealokasi(address_relasi &P){
     delete P;
 }
+
 address_relasi findElm(List_relasi L, address_parent P, address_child C){
     address_relasi A;
     while (A != NULL) {
@@ -89,11 +97,12 @@ address_relasi findElm(List_relasi L, address_parent P, address_child C){
         A = next_relasi(A);
     }
 }
+
 void printInfo(List_relasi L){
     address_relasi P;
 
     while (P != NULL){
         cout << ... << endl;
-        P = next_relasi(P)
+        P = next_relasi(P);
     }
 }
