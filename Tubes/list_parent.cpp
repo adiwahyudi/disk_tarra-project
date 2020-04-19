@@ -1,4 +1,4 @@
-// Parent as Single Linked List and Kaset
+/// Parent as Single Linked List and Kaset
 #include "list_parent.h"
 
 void createList(List_parent &L) {

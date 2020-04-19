@@ -1,8 +1,10 @@
-// Parent as Single Linked List and Kaset
+/// Parent as Single Linked List and Kaset
 
 #ifndef LIST_PARENT_H_INCLUDED
 #define LIST_PARENT_H_INCLUDED
+
 #include <iostream>
+
 #define first_parent(L) L.first_parent
 #define next_parent(P) P->next_parent
 #define info_parent(P) P->info_parent
