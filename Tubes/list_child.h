@@ -5,6 +5,7 @@
 #include <iostream>
 
 #define next_child(P) P->next_child
+#define prev_child(P) P->prev_child
 #define first_child(L) L.first_child
 #define last_child(L) L.last_child
 

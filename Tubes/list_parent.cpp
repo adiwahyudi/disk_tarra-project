@@ -20,8 +20,8 @@ void insertFirstParent(List_parent &L, adr_parent P) {
     adr_parent Q;
     if(first_parent(L) == NULL) {
         first_parent(L) = P;
-        next_parent(P) = P;
-        P = last_parent(L);
+        last_parent(P) = P;
+        next_parent(P) = NULL;
     } else {
         next_parent(P) = first_parent(L);
         first_parent(L) = P;
@@ -38,12 +38,9 @@ void insertLastParent(List_parent &L, adr_parent P){
     if(first_parent(L) == NULL){
         insertFirstParent(L,P)
     } else {
-        Q = first_parent(L);
-        while(next_parent(Q) != first_parent(L)){
-            Q = next_parent(Q);
-        }
-        next_parent(Q) = P;
-        next_parent(P) = NULL;
+       next_parent(last_parent(L)) = P;
+       last_parent(L) P;
+       next_parent(P) = NULL;
     }
 }
 
