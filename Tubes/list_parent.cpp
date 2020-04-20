@@ -3,47 +3,40 @@
 
 void createList(List_parent &L) {
     first_parent(L) = NULL;
+    last_parent(L) = NULL;
 }
 
-address_parent alokasi(infotype_parent x) {
-    address_parent P;
+adr_parent alokasi(infotype_parent x) {
+
+    adr_parent P;
+
     P = new elmlist_parent;
     info_parent(P) = x;
     next_parent(P) = NULL;
     return P;
 }
 
-void insertFirst(List_parent &L, address_parent P) {
-    address_parent Q;
+void insertFirstParent(List_parent &L, adr_parent P) {
+    adr_parent Q;
     if(first_parent(L) == NULL) {
         first_parent(L) = P;
         next_parent(P) = P;
+        P = last_parent(L);
     } else {
-        Q = first_parent(L);
-        while(next_parent(Q) != first_parent(L)) {
-            Q = next_parent(Q);
-        }
         next_parent(P) = first_parent(L);
-        next_parent(Q) = P;
         first_parent(L) = P;
     }
 }
+void insertAfterParent(adr_parent Prec, adr_parent P){
 
-void insertAfter(List_parent &L, address_parent Prec, address_parent P){
-    if((first_parent(L) != NULL) && (Prec != NULL)){
-        if(next_parent(Prec) = first_parent(L)){
-            insertLast(L,P);
-        } else {
-            next_parent(P) = next_parent(Prec);
-            next_parent(Prec) = P;
-        }
-    }
+    next_parent(P) = next_parent(Prec);
+    next_parent(Prec) = P;
+
 }
-
-void insertLast(List_parent &L, address_parent P){
-    address_parent Q;
-    if(first_parent(L) = NULL){
-        first_parent(L) = P;
+void insertLastParent(List_parent &L, adr_parent P){
+    adr_parent Q;
+    if(first_parent(L) == NULL){
+        insertFirstParent(L,P)
     } else {
         Q = first_parent(L);
         while(next_parent(Q) != first_parent(L)){
@@ -54,66 +47,48 @@ void insertLast(List_parent &L, address_parent P){
     }
 }
 
-void deleteFirst(List_parent &L, address_parent &P){
-    address_parent Q;
-     if(first_parent(L) != NULL){
-        P = first_parent(L);
-        if(next_parent(P) = first_parent(L)){
-            next_parent(P) = NULL;
-            first_parent(L) = NULL;
+void deleteFirstParent(List_parent &L, adr_parent &P){
+    if (first_parent(L) != NULL){
+        if (first_parent(L) == last_parent(L)) {
+            first_relasi(L) = NULL;
+            last_relasi(L) = NULL;
         } else {
-            Q = first_parent(L);
-            while(next_parent(Q) != first_parent(L)){
+            first_parent(L) = next_parent(first_parent(L));
+            next_parent(P) = NULL;
+        }
+    }
+}
+void deleteLastParent(List_parent &L, adr_parent &P){ ///masih bingung lupa euy
+   if (first_parent(L) != NULL){
+        if (first_parent(L) == last_parent(L)){
+            deleteFirstParent(L,P);
+        } else {
+            adr_parent Q = first_parent(L);
+            while ( next_parent(Q) != last_parent(L) ) {
                 Q = next_parent(Q);
             }
-            first_parent(L) = next_parent(P);
-            next_parent(Q) = next_parent(P);
-            next_parent(P) = NULL;
+            last_parent(L) = Q;
+            next_parent(last_parent(L))= NULL;
         }
-    }
-}
-void deleteLast(List_parent &L, address_parent &P){
-    address_parent Q;
-    if(first_parent(L) != NULL){
-        P = first_parent(L);
-        if(next_parent(P) = first_parent(L)){
-            next_parent(P) = NULL;
-            first_parent(L) = NULL;
-        } else {
-            Q = first_parent(L);
-            while(next_parent(next_parent(Q)) != first_parent(L)){
-                Q = next_parent(Q);
-            }
-            P = next_parent(Q);
-            next_parent(Q) = next_parent(P);
-            next_parent(P) = NULL;
-        }
-    }
+   }
 }
 
-void deleteAfter(List_parent &L, address_parent Prec, address_parent &P){
-    if(first_parent(L) != NULL && (Prec != NULL)){
-        if(next_parent(Prec) = first_parent(L)){
-            deleteFirst(L,P);
-        } else {
-            P = next_parent(Prec);
-            next_parent(Prec) = next_parent(P);
-            next_parent(P) = NULL;
-        }
+void deleteAfterParent(List_parent &L, adr_parent Prec, adr_parent &P){
+    if ( first_parent(L) != NULL) {
+        P = next_parent(Prec);
+        next_parent(Prec) = P;
+        next_parent(P) = NULL;
     }
 }
-
-
-void printInfo(List_parent L) {
-    address_parent P = first_parent(L);
-    while(P != NULL){
-        cout << info_child(P) << endl;
-        P = next_parent(P);
-    }
+void printParent(List_parent L) {
+   for (adr_parent P = first_parent(L) ; info_parent(P) != NULL ; P = next_parent(P)) {
+        cout << info_parent(P) << endl;
+   }
 }
 
-address_parent findElm(List_parent L, infotype_parent x) {
-    address_parent P = first_parent(L);
+adr_parent findElm(List_parent L, infotype_parent x) {
+    adr_parent P = first_parent(L);
+
     while ((P != NULL) && (info_parent(P) != x)){
         P = next_parent(P);
     }

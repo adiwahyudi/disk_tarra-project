@@ -6,34 +6,35 @@
 #include <iostream>
 
 #define first_parent(L) L.first_parent
+#define last_parent(L) L.last_parent
 #define next_parent(P) P->next_parent
 #define info_parent(P) P->info_parent
 
 using namespace std;
 
 typedef int infotype_parent;
-typedef struct elmlist_parent *address_parent;
+typedef struct elmlist_parent *adr_parent;
 
 struct elmlist_parent {
     infotype_parent info;
-    address_parent next;
+    adr_parent next;
 };
 
 struct List_parent {
-    address_parent first;
+    adr_parent first;
+    adr_parent last;
 };
 
-
 void createList(List_parent &L);
-void insertFirst(List_parent &L, address_parent P);
-void insertAfter(List_parent &L, address_parent Prec, address_parent P);
-void insertLast(List_parent &L, address_parent P);
-void deleteFirst(List_parent &L, address_parent &P);
-void deleteLast(List_parent &L, address_parent &P);
-void deleteAfter(List_parent &L, address_parent Prec, address_parent &P);
+void insertFirstParent(List_parent &L, adr_parent P);
+void insertAfterParent(adr_parent Prec, adr_parent P);
+void insertLastParent(List_parent &L, adr_parent P);
+void deleteFirstParent(List_parent &L, adr_parent &P);
+void deleteLastParent(List_parent &L, adr_parent &P);
+void deleteAfterParent(List_parent &L, adr_parent Prec, adr_parent &P);
 
-address_parent alokasi(infotype_parent x);
-void dealokasi(address_parent &P);
-address_parent findElm(List_parent L, infotype_parent x);
-void printInfo(List_parent L);
+adr_parent alokasi(infotype_parent x);
+void dealokasi(adr_parent &P);
+adr_parent findElm(List_parent L, infotype_parent x);
+void printParent(List_parent L);
 #endif // LIST_PARENT_H_INCLUDED

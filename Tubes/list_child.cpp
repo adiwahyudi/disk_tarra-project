@@ -1,4 +1,5 @@
 /// Child as Double Circular Linked List and Penyewa
+
 #include "list_child.h"
 
 void createList(List_child &L) {
@@ -6,15 +7,15 @@ void createList(List_child &L) {
     last_child(L) = NULL;
 }
 
-address_child alokasi(infotype_child x) {
-    address_child P = new elmlist_child;
+adr_child alokasi(infotype_child x) {
+    adr_child P = new elmlist_child;
     info_child(P) = x;
     next_child(P) = NULL;
     prev_child(P) = NULL;
     return P;
 }
 
-void insertFirst(List_child &L, address_child P) {
+void insertFirst(List_child &L, adr_child P) {
     if(first_child(L) == NULL) {
         first_child(L) = P;
         last_child(L) = P;
@@ -25,7 +26,7 @@ void insertFirst(List_child &L, address_child P) {
     }
 }
 
-void insertLast(List_child &L, address_child P){
+void insertLast(List_child &L, adr_child P){
     if(first_child(L) == NULL){
         first_child(L) = P;
         last_child(L) = P;
@@ -36,14 +37,14 @@ void insertLast(List_child &L, address_child P){
     }
 }
 
-void insertAfter(address_child &Prec, address_child P) {
+void insertAfter(adr_child &Prec, adr_child P) {
     prev_child(next_child(Prec)) = P;
     next_child(P) = next_child(Prec);
     prev_child(P) = Prec;
     next_child(Prec) = P;
 }
 
-void deleteFirst(List_child &L, address_child &P){
+void deleteFirst(List_child &L, adr_child &P){
     if(first_child(L) != NULL){
         P = first_child(L);
         if(P = last_child(L)){
@@ -57,7 +58,7 @@ void deleteFirst(List_child &L, address_child &P){
     }
 }
 
-void deleteLast(List_child &L, address_child &P){
+void deleteLast(List_child &L, adr_child &P){
     if(first_child(L) != NULL){
         P = last_child(L);
         if(P = last_child(L)){
@@ -71,7 +72,7 @@ void deleteLast(List_child &L, address_child &P){
     }
 }
 
-void deleteAfter(List_child &L, address_child Prec, address_child &P){
+void deleteAfter(List_child &L, adr_child Prec, adr_child &P){
     if((first_child(L) != NULL)&&(Prec != NULL)){
         if(Prec != last_child(L)){
             if(next_child(Prec) = last_child(L)){
@@ -88,7 +89,7 @@ void deleteAfter(List_child &L, address_child Prec, address_child &P){
 }
 
 void printInfo(List_child L) {
-    address_child P = first_child(L);
+    adr_child P = first_child(L);
     while(P != NULL) {
         cout<<"->"<<info_child(P)<<endl;
         P = next_child(P);
@@ -96,8 +97,8 @@ void printInfo(List_child L) {
 }
 
 
-address_child findElm(List_child L, infotype_child x) {
-    address_child P = first_child(L);
+adr_child findElm(List_child L, infotype_child x) {
+    adr_child P = first_child(L);
     while(P != NULL) {
         if(info_child(P)==x) {
             return P;
