@@ -17,15 +17,15 @@ typedef string infotype_child;
 typedef struct elmlist_child *adr_child;
 
 struct elmlist_child{
-    infotype_child info;
-    adr_child next;
-    adr_child prev;
+    infotype_child info_child;
+    adr_child next_child;
+    adr_child prev_child;
 };
 
 struct List_child{
-    adr_child first;
-    adr_child last;
-};+
+    adr_child first_child;
+    adr_child last_child;
+};
 
 void createList(List_child &L);
 void insertFirst(List_child &L, adr_child P);

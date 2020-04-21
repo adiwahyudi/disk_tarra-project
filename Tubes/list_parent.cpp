@@ -1,4 +1,5 @@
 /// Parent as Single Linked List and Kaset
+
 #include "list_parent.h"
 
 void createList(List_parent &L) {
@@ -20,7 +21,7 @@ void insertFirstParent(List_parent &L, adr_parent P) {
     adr_parent Q;
     if(first_parent(L) == NULL) {
         first_parent(L) = P;
-        last_parent(P) = P;
+        last_parent(L) = P;
         next_parent(P) = NULL;
     } else {
         next_parent(P) = first_parent(L);
@@ -36,10 +37,10 @@ void insertAfterParent(adr_parent Prec, adr_parent P){
 void insertLastParent(List_parent &L, adr_parent P){
     adr_parent Q;
     if(first_parent(L) == NULL){
-        insertFirstParent(L,P)
+        insertFirstParent(L,P);
     } else {
        next_parent(last_parent(L)) = P;
-       last_parent(L) P;
+       last_parent(L) = P;
        next_parent(P) = NULL;
     }
 }
@@ -47,8 +48,8 @@ void insertLastParent(List_parent &L, adr_parent P){
 void deleteFirstParent(List_parent &L, adr_parent &P){
     if (first_parent(L) != NULL){
         if (first_parent(L) == last_parent(L)) {
-            first_relasi(L) = NULL;
-            last_relasi(L) = NULL;
+            first_parent(L) = NULL;
+            last_parent(L) = NULL;
         } else {
             first_parent(L) = next_parent(first_parent(L));
             next_parent(P) = NULL;
@@ -71,11 +72,10 @@ void deleteLastParent(List_parent &L, adr_parent &P){ ///masih bingung lupa euy
 }
 
 void deleteAfterParent(List_parent &L, adr_parent Prec, adr_parent &P){
-    if ( first_parent(L) != NULL) {
         P = next_parent(Prec);
         next_parent(Prec) = P;
         next_parent(P) = NULL;
-    }
+
 }
 void printParent(List_parent L) {
    for (adr_parent P = first_parent(L) ; info_parent(P) != NULL ; P = next_parent(P)) {

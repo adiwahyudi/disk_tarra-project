@@ -16,13 +16,13 @@ typedef int infotype_parent;
 typedef struct elmlist_parent *adr_parent;
 
 struct elmlist_parent {
-    infotype_parent info;
-    adr_parent next;
+    infotype_parent info_parent;
+    adr_parent next_parent;
 };
 
 struct List_parent {
-    adr_parent first;
-    adr_parent last;
+    adr_parent first_parent;
+    adr_parent last_parent;
 };
 
 void createList(List_parent &L);
