@@ -3,107 +3,116 @@
 #include "list_child.h"
 
 void createList(List_child &L) {
-    first_child(L) = NULL;
-    last_child(L) = NULL;
+    first(L) = NULL;
+    last(L) = NULL;
 }
 
 adr_child alokasi(infotype_child x) {
+
     adr_child P = new elmlist_child;
-    info_child(P) = x;
-    next_child(P) = NULL;
-    prev_child(P) = NULL;
+    info(P) = x;
+    next(P) = NULL;
+    prev(P) = NULL;
     return P;
 }
 
 void insertFirst(List_child &L, adr_child P) {
-    if(first_child(L) == NULL) {
-        first_child(L) = P;
-        last_child(L) = P;
+    if (first(L) != NULL){
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(first(L))) = P;
+        prev(first(L)) = P;
+        first(L) = P;
     } else {
-        next_child(P) = first_child(L);
-        prev_child(first_child(L)) = P;
-        first_child(L) = P;
+        first(L) = P;
+        next(P) = P;
+        prev(P) = P;
+        last(P) = P;
     }
 }
-
 void insertLast(List_child &L, adr_child P){
-    if(first_child(L) == NULL){
-        first_child(L) = P;
-        last_child(L) = P;
+    if(first(L) == NULL){
+       insertFirst(L,P);
     } else {
-        prev_child(P) = last_child(L);
-        next_child(last_child(L)) = P;
-        last_child(L) = P;
+        next(last(L)) = P;
+        prev(P) = last(L);
+        next(P) = first(L);
+        prev(first(L)) = P;
+        last(L) = P;
     }
 }
 
 void insertAfter(adr_child &Prec, adr_child P) {
-    prev_child(next_child(Prec)) = P;
-    next_child(P) = next_child(Prec);
-    prev_child(P) = Prec;
-    next_child(Prec) = P;
+
+    prev(next(Prec)) = P;
+    next(P) = next(Prec);
+    prev(P) = Prec;
+    next(Prec) = P;
 }
 
 void deleteFirst(List_child &L, adr_child &P){
-    if(first_child(L) != NULL){
-        P = first_child(L);
-        if(P = last_child(L)){
-            first_child(L) = NULL;
-            last_child(L) = NULL;
-        } else {
-            first_child(L) = next_child(P);
-            next_child(P) = NULL;
-            prev_child(first_child(L)) = NULL;
-        }
+
+    P = first(L);
+    if (next(first(L))!= P){
+        first(L) = next(P);
+        next(prev(P)) = first(L);
+        prev(first(L)) = prev(P);
+        next(P) = NULL;
+        prev(P) = NULL;
+    } else {
+        next(P) = NULL;
+        prev(P) = NULL;
+        first(L) = NULL;
     }
 }
 
 void deleteLast(List_child &L, adr_child &P){
-    if(first_child(L) != NULL){
-        P = last_child(L);
-        if(P = last_child(L)){
-            first_child(L) = NULL;
-            last_child(L) = NULL;
+    if(first(L) != NULL){
+        P = last(L);
+        if(P = last(L)){
+            first(L) = NULL;
+            last(L) = NULL;
         } else {
-            last_child(L) = prev_child(P);
-            prev_child(P) = NULL;
-            next_child(last_child(L)) = NULL;
+            last(L) = prev(P);
+            prev(P) = NULL;
+            next(last(L)) = NULL;
         }
     }
 }
 
 void deleteAfter(List_child &L, adr_child Prec, adr_child &P){
-    if((first_child(L) != NULL)&&(Prec != NULL)){
-        if(Prec != last_child(L)){
-            if(next_child(Prec) = last_child(L)){
+    if((first(L) != NULL)&&(Prec != NULL)){
+        if(Prec != last(L)){
+            if(next(Prec) = last(L)){
                 deleteLast(L,P);
             } else {
-                P = next_child(Prec);
-                next_child(Prec) = next_child(P);
-                prev_child(next_child(P)) = Prec;
-                next_child(P) = NULL;
-                prev_child(P) = NULL;
+                P = next(Prec);
+                next(Prec) = next(P);
+                prev(next(P)) = Prec;
+                next(P) = NULL;
+                prev(P) = NULL;
             }
         }
     }
 }
 
 void printInfo(List_child L) {
-    adr_child P = first_child(L);
-    while(P != NULL) {
-        cout<<"->"<<info_child(P)<<endl;
-        P = next_child(P);
-    }
+    adr_child P = first(L);
+
+    do {
+        cout << info(P) << endl;
+        P = next(P);
+    } while (P != first(L))
 }
 
 
 adr_child findElm(List_child L, infotype_child x) {
-    adr_child P = first_child(L);
+    adr_child P = first(L);
     while(P != NULL) {
-        if(info_child(P)==x) {
+        if(info(P) == x ) {
             return P;
         }
-        P = next_child(P);
+        P = next(P);
     }
     return NULL;
 }

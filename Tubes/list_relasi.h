@@ -1,10 +1,12 @@
 #ifndef LIST_RELASI_H_INCLUDED
 #define LIST_RELASI_H_INCLUDED
 
-#define next_relasi(P) P->next_relasi
+#include <iostream>
 
-#define first_relasi(L) L.first_relasi
-#define last_relasi(L) L.last_relasi
+#define next(P) P->next
+
+#define first(L) L.first
+#define last(L) L.last
 
 #define child(P) P->child
 #define parent(P) P->parent
@@ -17,12 +19,12 @@ typedef struct elmlist_relasi *adr_relasi;
 struct elmlist_relasi {
     adr_child child;
     adr_parent parent;
-    adr_relasi next_relasi;
+    adr_relasi next;
 };
 
 struct List_relasi {
-    adr_relasi first_relasi;
-    adr_relasi last_relasi;
+    adr_relasi first;
+    adr_relasi last;
 };
 void createList(List_relasi &L);
 void insertFirst(List_relasi &L, adr_relasi P);

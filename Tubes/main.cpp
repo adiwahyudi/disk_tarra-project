@@ -18,7 +18,7 @@ void Menu(){
         cout << "7. Delete Data Peminjam Kaset" << endl;
         cout << "8. Rekomendasi Film" << endl;
         cout << "0. Quit" << endl;
-        cout << "Choose Menu : " << endl;
+        cout << "\nChoose Menu : ";
         cin >> pilihMenu;
         switch(pilihMenu){
         case 1:

@@ -5,10 +5,10 @@
 
 #include <iostream>
 
-#define first_parent(L) L.first_parent
-#define last_parent(L) L.last_parent
-#define next_parent(P) P->next_parent
-#define info_parent(P) P->info_parent
+#define first(L) L.first
+#define last(L) L.last
+#define next(P) P->next
+#define info(P) P->info
 
 using namespace std;
 
@@ -16,13 +16,13 @@ typedef int infotype_parent;
 typedef struct elmlist_parent *adr_parent;
 
 struct elmlist_parent {
-    infotype_parent info_parent;
-    adr_parent next_parent;
+    infotype_parent info;
+    adr_parent next;
 };
 
 struct List_parent {
-    adr_parent first_parent;
-    adr_parent last_parent;
+    adr_parent first;
+    adr_parent last;
 };
 
 void createList(List_parent &L);

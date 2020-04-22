@@ -4,12 +4,12 @@
 
 #include <iostream>
 
-#define next_child(P) P->next_child
-#define prev_child(P) P->prev_child
-#define first_child(L) L.first_child
-#define last_child(L) L.last_child
+#define next(P) P->next
+#define prev(P) P->prev
+#define first(L) L.first
+#define last(L) L.last
 
-#define info_child(P) P->info_child
+#define info(P) P->info
 
 using namespace std;
 
@@ -17,14 +17,14 @@ typedef string infotype_child;
 typedef struct elmlist_child *adr_child;
 
 struct elmlist_child{
-    infotype_child info_child;
-    adr_child next_child;
-    adr_child prev_child;
+    infotype_child info;
+    adr_child next;
+    adr_child prev;
 };
 
 struct List_child{
-    adr_child first_child;
-    adr_child last_child;
+    adr_child first;
+    adr_child last;
 };
 
 void createList(List_child &L);
