@@ -13,7 +13,12 @@
 
 using namespace std;
 
-typedef string infotype_child;
+struct InfoPenyewa {
+    NoIdent string;
+    Nama string;
+};
+
+typedef Penyewa infotype_child;
 typedef struct elmlist_child *adr_child;
 
 struct elmlist_child{

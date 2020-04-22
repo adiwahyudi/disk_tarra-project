@@ -12,7 +12,13 @@
 
 using namespace std;
 
-typedef int infotype_parent;
+struct InfoKaset {
+    Judul string;
+    TahunKaset int;
+    Genre string;
+};
+
+typedef InfoKaset infotype_parent;
 typedef struct elmlist_parent *adr_parent;
 
 struct elmlist_parent {
