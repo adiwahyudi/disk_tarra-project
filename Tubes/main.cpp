@@ -6,29 +6,51 @@
 using namespace std;
 
 void Menu(){
-    int pilihMenu;
+    infotype_parent parent;
+    infotype_child child;
+    int pilihMenu,Nmr;
     do{
         cout << "=========PEMINJAMAN KASET===========" << endl;
         cout << "1. Memasukkan Data Peminjam" << endl;
-        cout << "2. Menampilkan Kaset Yang Tersedia" << endl;
-        cout << "3. Menampilkan Data Peminjam Kaset" << endl;
-        cout << "4. Search Data Peminjam Kaset" << endl;
-        cout << "5. Search Kaset" << endl;
-        cout << "6. Edit Data Peminjam" << endl;
-        cout << "7. Delete Data Peminjam Kaset" << endl;
-        cout << "8. Rekomendasi Film" << endl;
+        cout << "2. Memasukkan Data Kaset " << endl;
+        cout << "3. Menampilkan Data Peminjam/ Kaset " << endl;
+        cout << "4. Search Kaset" << endl;
+        cout << "5. Edit Data Peminjam" << endl;
+        cout << "6. Delete Data Peminjam Kaset" << endl;
+        cout << "7. Rekomendasi Film" << endl;
         cout << "0. Quit" << endl;
         cout << "\nChoose Menu : ";
         cin >> pilihMenu;
         switch(pilihMenu){
         case 1:
-
+            cout << "Masukkan nama anda: " << endl;
+            getline(cin, child.Nama);
+            cout << "Masukkan Nomor Identitas: " << endl;
+            getline(cin, child.NoIdent);
+            // insertshort belum dibuat
             break;
         case 2:
-
+            cout << "Masukkan Judul: " << endl;
+            getline(cin, parent.judul);
+            cout << "Masukkan Tahun Kaset: " << endl;
+            getline(cin, parent.tahunKaset);
+            cout << "Masukkan Genre: " << endl;
+            getline(cin ,parent.genre);
+            // insertshort belum dibuat
             break;
         case 3:
-
+            cout << "1. Menampilkan Data peminjam" << endl;
+            cout << "2. Menampilkan Kaset " << endl;
+            cout << "3. Menampilkan Data Peminjam Kaset " << endl;
+            cout << "   Pilih : " << endl;
+            cin >> Nmr;
+            if(Nmr == 1){
+                printChild(L);
+            } else if(Nmr == 2){
+                printParent(L);
+            } else if(Nmr == 3){
+                printRelasi(L);
+            }
             break;
         case 4:
 
@@ -45,7 +67,6 @@ void Menu(){
         case 8:
 
             break;
-        }
         if(pilihMenu == 0){
             break;
         }

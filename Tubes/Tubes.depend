@@ -2,18 +2,22 @@
 1585230396 source:d:\strukdat\tugasbesarstd\tubes\list_parent.cpp
 	"list_parent.h"
 
-1585230396 d:\strukdat\tugasbesarstd\tubes\list_parent.h
+1587561269 d:\strukdat\tugasbesarstd\tubes\list_parent.h
 	<iostream>
 
-1585226385 source:d:\strukdat\tugasbesarstd\tubes\list_relasi.cpp
+1587558814 source:d:\strukdat\tugasbesarstd\tubes\list_relasi.cpp
+	"list_relasi.h"
 
-1514140574 source:d:\strukdat\tugasbesarstd\tubes\main.cpp
+1587561130 source:d:\strukdat\tugasbesarstd\tubes\main.cpp
 	<iostream>
+	"list_child.h"
+	"list_parent.h"
+	"list_relasi.h"
 
-1585230433 source:d:\strukdat\tugasbesarstd\tubes\list_child.cpp
+1587558814 source:d:\strukdat\tugasbesarstd\tubes\list_child.cpp
 	"list_child.h"
 
-1585230489 d:\strukdat\tugasbesarstd\tubes\list_child.h
+1587561438 d:\strukdat\tugasbesarstd\tubes\list_child.h
 	<iostream>
 
 1587549880 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.cpp
@@ -41,4 +45,9 @@
 
 1587549309 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
 	"list_relasi.h"
+
+1587558814 d:\strukdat\tugasbesarstd\tubes\list_relasi.h
+	<iostream>
+	"list_parent.h"
+	"list_child.h"
 

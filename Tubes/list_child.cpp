@@ -2,7 +2,7 @@
 
 #include "list_child.h"
 
-void createList(List_child &L) {
+void createList_Child(List_child &L) {
     first(L) = NULL;
     last(L) = NULL;
 }
@@ -10,13 +10,14 @@ void createList(List_child &L) {
 adr_child alokasi(infotype_child x) {
 
     adr_child P = new elmlist_child;
-    info(P) = x;
+    info(P).NoIdent = x.NoIdent;
+    info(P).Nama = x.Nama;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
 }
 
-void insertFirst(List_child &L, adr_child P) {
+void insertFirstChild(List_child &L, adr_child P) {
     if (first(L) != NULL){
         next(P) = first(L);
         prev(P) = prev(first(L));
@@ -30,7 +31,7 @@ void insertFirst(List_child &L, adr_child P) {
         last(L) = P;
     }
 }
-void insertLast(List_child &L, adr_child P){
+void insertLastChild(List_child &L, adr_child P){
     if(first(L) == NULL){
        insertFirst(L,P);
     } else {
@@ -42,7 +43,7 @@ void insertLast(List_child &L, adr_child P){
     }
 }
 
-void insertAfter(adr_child &Prec, adr_child P) {
+void insertAfterChild(adr_child &Prec, adr_child P) {
 
     prev(next(Prec)) = P;
     next(P) = next(Prec);
@@ -50,8 +51,7 @@ void insertAfter(adr_child &Prec, adr_child P) {
     next(Prec) = P;
 }
 
-void deleteFirst(List_child &L, adr_child &P){
-
+void deleteFirstChild(List_child &L, adr_child &P){
     P = first(L);
     if (next(first(L))!= P){
         first(L) = next(P);
@@ -66,7 +66,7 @@ void deleteFirst(List_child &L, adr_child &P){
     }
 }
 
-void deleteLast(List_child &L, adr_child &P){
+void deleteLastChild(List_child &L, adr_child &P){
 
     if ( first(L) != last(L) ){
         P = prev(first(L));
@@ -78,7 +78,7 @@ void deleteLast(List_child &L, adr_child &P){
         deleteFirst(L,P);
     }
 }
-void deleteAfter (List_child &L, adr_child Prec, adr_child &P){
+void deleteAfterChild(List_child &L, adr_child Prec, adr_child &P){
 
     if ( next(Prec) != first(L) ) {
         P = next(Prec);
@@ -91,11 +91,12 @@ void deleteAfter (List_child &L, adr_child Prec, adr_child &P){
     }
 }
 
-void printInfo(List_child L) {
+void printChild(List_child L) {
     adr_child P = first(L);
 
     do {
-        cout << info(P) << endl;
+        cout << info(P).NoIdent << endl;
+        cout << info(P).Nama << endl;
         P = next(P);
     } while (P != first(L));
 }

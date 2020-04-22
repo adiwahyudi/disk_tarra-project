@@ -13,9 +13,9 @@
 using namespace std;
 
 struct InfoKaset {
-    Judul string;
-    TahunKaset int;
-    Genre string;
+    string judul;
+    int tahunKaset;
+    string genre;
 };
 
 typedef InfoKaset infotype_parent;
@@ -31,7 +31,7 @@ struct List_parent {
     adr_parent last;
 };
 
-void createList(List_parent &L);
+void createList_parent(List_parent &L);
 void insertFirstParent(List_parent &L, adr_parent P);
 void insertAfterParent(adr_parent Prec, adr_parent P);
 void insertLastParent(List_parent &L, adr_parent P);

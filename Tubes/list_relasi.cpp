@@ -84,7 +84,7 @@ adr_relasi findElm(List_relasi L, adr_parent P, adr_child C){
     return NULL;
 }
 
-void printInfo(List_relasi L){
+void printRelasi(List_relasi L){
     adr_relasi P = first(L);
     while (P != NULL){
         cout << "nanti" << endl;

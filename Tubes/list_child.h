@@ -14,11 +14,11 @@
 using namespace std;
 
 struct InfoPenyewa {
-    NoIdent string;
-    Nama string;
+    string NoIdent;
+    string Nama;
 };
 
-typedef Penyewa infotype_child;
+typedef InfoPenyewa infotype_child;
 typedef struct elmlist_child *adr_child;
 
 struct elmlist_child{
@@ -32,18 +32,18 @@ struct List_child{
     adr_child last;
 };
 
-void createList(List_child &L);
-void insertFirst(List_child &L, adr_child P);
-void insertLast(List_child &L, adr_child P);
-void insertAfter(adr_child Prec, adr_child P);
-void deleteFirst(List_child &L, adr_child &P);
-void deleteLast(List_child &L, adr_child &P);
-void deleteAfter(List_child &L,adr_child Prec, adr_child &P);
+void createList_Child(List_child &L);
+void insertFirstChild(List_child &L, adr_child P);
+void insertLastChild(List_child &L, adr_child P);
+void insertAfterChild(adr_child Prec, adr_child P);
+void deleteFirstChild(List_child &L, adr_child &P);
+void deleteLastChild(List_child &L, adr_child &P);
+void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
 
 adr_child alokasi(infotype_child x);
 void dealokasi(adr_child &P);
-adr_child findElm(List_child L, infotype_child x);
-void printInfo(List_child L);
+adr_child findElmChild(List_child L, infotype_child x);
+void printChild(List_child L);
 
 
 #endif // LIST_CHILD_H_INCLUDED

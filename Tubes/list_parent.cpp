@@ -12,7 +12,9 @@ adr_parent alokasi(infotype_parent x) {
     adr_parent P;
 
     P = new elmlist_parent;
-    info(P) = x;
+    info(P).judul = x.judul;
+    info(P).tahunKaset = x.tahunKaset;
+    info(P).genre = x.genre;
     next(P) = NULL;
     return P;
 }
