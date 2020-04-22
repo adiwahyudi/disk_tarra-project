@@ -24,7 +24,7 @@ NOTES :
 ~~untuk mencoret kalimat~~  -> ~ (2x) <br>
 untuk enter = br <br>
 **Untuk bold** -> **<br>
-_ _untuk miring_ _ -> __<br>
+_untuk miring_ -> _<br>
 ***untuk miring dan bold*** -> <br>
 # untuk judul utama
 ### untuk sub judul
