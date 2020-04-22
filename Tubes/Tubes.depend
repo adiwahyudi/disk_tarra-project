@@ -16,10 +16,10 @@
 1585230489 d:\strukdat\tugasbesarstd\tubes\list_child.h
 	<iostream>
 
-1587523452 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.cpp
+1587549880 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.cpp
 	"list_child.h"
 
-1587523153 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.h
+1587547685 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.h
 	<iostream>
 
 1587523279 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_parent.cpp
@@ -39,6 +39,6 @@
 	"list_parent.h"
 	"list_child.h"
 
-1587520202 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
+1587549309 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
 	"list_relasi.h"
 

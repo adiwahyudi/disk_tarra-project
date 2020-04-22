@@ -27,7 +27,7 @@ void insertFirst(List_child &L, adr_child P) {
         first(L) = P;
         next(P) = P;
         prev(P) = P;
-        last(P) = P;
+        last(L) = P;
     }
 }
 void insertLast(List_child &L, adr_child P){
@@ -67,32 +67,27 @@ void deleteFirst(List_child &L, adr_child &P){
 }
 
 void deleteLast(List_child &L, adr_child &P){
-    if(first(L) != NULL){
-        P = last(L);
-        if(P = last(L)){
-            first(L) = NULL;
-            last(L) = NULL;
-        } else {
-            last(L) = prev(P);
-            prev(P) = NULL;
-            next(last(L)) = NULL;
-        }
+
+    if ( first(L) != last(L) ){
+        P = prev(first(L));
+        next(prev(P)) = first(L);
+        prev(first(L)) = prev(prev(P));
+        next(P) = NULL;
+        prev(P) = NULL;
+    } else {
+        deleteFirst(L,P);
     }
 }
+void deleteAfter (List_child &L, adr_child Prec, adr_child &P){
 
-void deleteAfter(List_child &L, adr_child Prec, adr_child &P){
-    if((first(L) != NULL)&&(Prec != NULL)){
-        if(Prec != last(L)){
-            if(next(Prec) = last(L)){
-                deleteLast(L,P);
-            } else {
-                P = next(Prec);
-                next(Prec) = next(P);
-                prev(next(P)) = Prec;
-                next(P) = NULL;
-                prev(P) = NULL;
-            }
-        }
+    if ( next(Prec) != first(L) ) {
+        P = next(Prec);
+        prev(next(P)) = Prec;
+        next(Prec) = next(P);
+        next(P) = NULL;
+        prev(P) = NULL;
+    } else {
+        deleteFirst(L,P);
     }
 }
 
@@ -102,17 +97,19 @@ void printInfo(List_child L) {
     do {
         cout << info(P) << endl;
         P = next(P);
-    } while (P != first(L))
+    } while (P != first(L));
 }
 
 
 adr_child findElm(List_child L, infotype_child x) {
     adr_child P = first(L);
-    while(P != NULL) {
+
+    do{
         if(info(P) == x ) {
             return P;
         }
         P = next(P);
-    }
+    } while(P != first(L));
+
     return NULL;
 }

@@ -33,7 +33,7 @@ void insertLast(List_child &L, adr_child P);
 void insertAfter(adr_child Prec, adr_child P);
 void deleteFirst(List_child &L, adr_child &P);
 void deleteLast(List_child &L, adr_child &P);
-void deleteAfter(adr_child Prec, adr_child &P);
+void deleteAfter(List_child &L,adr_child Prec, adr_child &P);
 
 adr_child alokasi(infotype_child x);
 void dealokasi(adr_child &P);
