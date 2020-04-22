@@ -25,6 +25,6 @@ NOTES :
 untuk enter = br <br>
 **Untuk bold** -> **<br>
 _untuk miring_ -> _<br>
-***untuk miring dan bold*** -> <br>
+***untuk miring dan bold*** -> *** <br>
 # untuk judul utama
 ### untuk sub judul
