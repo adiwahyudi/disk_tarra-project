@@ -1,10 +1,10 @@
 #include "list_relasi.h"
 
-void createList(List_relasi &L){
+void createListRelasi(List_relasi &L){
     first(L) = NULL;
     last(L) = NULL;
 }
-void insertFirst(List_relasi &L, adr_relasi P){
+void insertFirstRelasi(List_relasi &L, adr_relasi P){
     if (first(L) != NULL){
         next(P) = first(L);
         first(L) = P;
@@ -16,10 +16,10 @@ void insertFirst(List_relasi &L, adr_relasi P){
     }
 }
 
-void insertLast(List_relasi &L, adr_relasi P){
+void insertLastRelasi(List_relasi &L, adr_relasi P){
 
     if (first(L) == NULL){
-        insertFirst(L,P);
+        insertFirstRelasi(L,P);
     } else {
         next(last(L)) = P;
         last(L) = P;
@@ -27,21 +27,21 @@ void insertLast(List_relasi &L, adr_relasi P){
     }
 }
 
-void insertAfter(adr_relasi Prec, adr_relasi P){
+void insertAfterRelasi(adr_relasi Prec, adr_relasi P){
 
     next(P) = next(Prec);
     next(Prec) = P;
 
 }
 
-void deleteFirst(List_relasi &L, adr_relasi &P){
+void deleteFirstRelasi(List_relasi &L, adr_relasi &P){
 
     P = first(L);
     first(L) = next(P);
     next(P) = NULL;
 }
 
-void deleteLast(List_relasi &L, adr_relasi &P){
+void deleteLastRelasi(List_relasi &L, adr_relasi &P){
     P = first(L);
     while ( next(P) != last(L) ) {
         P = next(P);
@@ -51,7 +51,7 @@ void deleteLast(List_relasi &L, adr_relasi &P){
     next(last(L)) = NULL;
 }
 
-void deleteAfter(adr_relasi Prec, adr_relasi &P){
+void deleteAfterRelasi(adr_relasi Prec, adr_relasi &P){
 
     P = next(Prec);
     next(Prec) = next(P);
@@ -59,7 +59,7 @@ void deleteAfter(adr_relasi Prec, adr_relasi &P){
 
 }
 
-adr_relasi alokasi( adr_parent P, adr_child C){
+adr_relasi alokasiRelasi( adr_parent P, adr_child C){
 
     adr_relasi Q = new elmlist_relasi;
 
@@ -68,7 +68,7 @@ adr_relasi alokasi( adr_parent P, adr_child C){
     return Q;
 }
 
-void dealokasi(adr_relasi &P){
+void dealokasiRelasi(adr_relasi &P){
     delete P;
 }
 

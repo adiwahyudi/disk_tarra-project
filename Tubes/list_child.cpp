@@ -2,12 +2,12 @@
 
 #include "list_child.h"
 
-void createList_Child(List_child &L) {
+void createListChild(List_child &L) {
     first(L) = NULL;
     last(L) = NULL;
 }
 
-adr_child alokasi(infotype_child x) {
+adr_child alokasiChild(infotype_child x) {
 
     adr_child P = new elmlist_child;
     info(P).NoIdent = x.NoIdent;
@@ -33,7 +33,7 @@ void insertFirstChild(List_child &L, adr_child P) {
 }
 void insertLastChild(List_child &L, adr_child P){
     if(first(L) == NULL){
-       insertFirst(L,P);
+       insertFirstChild(L,P);
     } else {
         next(last(L)) = P;
         prev(P) = last(L);
@@ -75,7 +75,7 @@ void deleteLastChild(List_child &L, adr_child &P){
         next(P) = NULL;
         prev(P) = NULL;
     } else {
-        deleteFirst(L,P);
+        deleteFirstChild(L,P);
     }
 }
 void deleteAfterChild(List_child &L, adr_child Prec, adr_child &P){
@@ -87,30 +87,32 @@ void deleteAfterChild(List_child &L, adr_child Prec, adr_child &P){
         next(P) = NULL;
         prev(P) = NULL;
     } else {
-        deleteFirst(L,P);
+        deleteFirstChild(L,P);
     }
 }
 
 void printChild(List_child L) {
     adr_child P = first(L);
-
     do {
-        cout << info(P).NoIdent << endl;
-        cout << info(P).Nama << endl;
+        cout << "Nomer Identitas : " << info(P).NoIdent << endl;
+        cout << "Nomer Identitas : " << info(P).Nama << endl;
         P = next(P);
     } while (P != first(L));
 }
 
 
-adr_child findElm(List_child L, infotype_child x) {
+adr_child findElmChild(List_child L, string x) { ///Untuk Sementara NoIdent semestinya ID dari Pengguna.
     adr_child P = first(L);
 
     do{
-        if(info(P) == x ) {
+        if(info(P).NoIdent == x ) {
             return P;
         }
         P = next(P);
     } while(P != first(L));
 
     return NULL;
+}
+void dealokasiChild(adr_child &P) {
+    delete P;
 }

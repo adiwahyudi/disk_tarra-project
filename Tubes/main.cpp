@@ -1,6 +1,7 @@
 #include <iostream>
-#include "list_child.h"
+
 #include "list_parent.h"
+#include "list_child.h"
 #include "list_relasi.h"
 
 using namespace std;
@@ -8,6 +9,15 @@ using namespace std;
 void Menu(){
     infotype_parent parent;
     infotype_child child;
+
+    List_child ListC;
+    List_parent ListP;
+    List_relasi ListR;
+
+    createListChild(ListC);
+    createListParent(ListP);
+    createListRelasi(ListR);
+
     int pilihMenu,Nmr;
     do{
         cout << "=========PEMINJAMAN KASET===========" << endl;
@@ -23,20 +33,25 @@ void Menu(){
         cin >> pilihMenu;
         switch(pilihMenu){
         case 1:
-            cout << "Masukkan nama anda: " << endl;
-            getline(cin, child.Nama);
-            cout << "Masukkan Nomor Identitas: " << endl;
+            cout << "Masukan Nomor Identitas:";
+            cin.get();
             getline(cin, child.NoIdent);
-            // insertshort belum dibuat
+            cout << "Masukan Nama Anda:";
+            getline(cin, child.Nama);
+            /// insert
+            cout << "Selamat data berhasil dibuat!" <<endl;
+            /// print
+
             break;
         case 2:
             cout << "Masukkan Judul: " << endl;
             getline(cin, parent.judul);
+            cin.get()
             cout << "Masukkan Tahun Kaset: " << endl;
-            getline(cin, parent.tahunKaset);
+            cin >> parent.tahunKaset;
             cout << "Masukkan Genre: " << endl;
             getline(cin ,parent.genre);
-            // insertshort belum dibuat
+            /// insertsorted belum dibuat
             break;
         case 3:
             cout << "1. Menampilkan Data peminjam" << endl;
@@ -45,11 +60,11 @@ void Menu(){
             cout << "   Pilih : " << endl;
             cin >> Nmr;
             if(Nmr == 1){
-                printChild(L);
+                //printChild(L);
             } else if(Nmr == 2){
-                printParent(L);
+                //printParent(L);
             } else if(Nmr == 3){
-                printRelasi(L);
+               //printRelasi(L);
             }
             break;
         case 4:
@@ -67,13 +82,13 @@ void Menu(){
         case 8:
 
             break;
+        }
         if(pilihMenu == 0){
             break;
         }
     }while (true);
 
 }
-
 int main()
 {
     Menu();

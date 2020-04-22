@@ -32,7 +32,7 @@ struct List_child{
     adr_child last;
 };
 
-void createList_Child(List_child &L);
+void createListChild(List_child &L);
 void insertFirstChild(List_child &L, adr_child P);
 void insertLastChild(List_child &L, adr_child P);
 void insertAfterChild(adr_child Prec, adr_child P);
@@ -40,8 +40,8 @@ void deleteFirstChild(List_child &L, adr_child &P);
 void deleteLastChild(List_child &L, adr_child &P);
 void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
 
-adr_child alokasi(infotype_child x);
-void dealokasi(adr_child &P);
+adr_child alokasiChild(infotype_child x);
+void dealokasiChild(adr_child &P);
 adr_child findElmChild(List_child L, infotype_child x);
 void printChild(List_child L);
 

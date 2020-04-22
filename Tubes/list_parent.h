@@ -31,7 +31,7 @@ struct List_parent {
     adr_parent last;
 };
 
-void createList_parent(List_parent &L);
+void createListParent(List_parent &L);
 void insertFirstParent(List_parent &L, adr_parent P);
 void insertAfterParent(adr_parent Prec, adr_parent P);
 void insertLastParent(List_parent &L, adr_parent P);

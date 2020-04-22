@@ -2,12 +2,12 @@
 
 #include "list_parent.h"
 
-void createList(List_parent &L) {
+void createListParent(List_parent &L) {
     first(L) = NULL;
     last(L) = NULL;
 }
 
-adr_parent alokasi(infotype_parent x) {
+adr_parent alokasiParent(infotype_parent x) {
 
     adr_parent P;
 
@@ -20,7 +20,6 @@ adr_parent alokasi(infotype_parent x) {
 }
 
 void insertFirstParent(List_parent &L, adr_parent P) {
-    adr_parent Q;
     if(first(L) == NULL) {
         first(L) = P;
         last(L) = P;
@@ -37,7 +36,6 @@ void insertAfterParent(adr_parent Prec, adr_parent P){
 
 }
 void insertLastParent(List_parent &L, adr_parent P){
-    adr_parent Q;
     if(first(L) == NULL){
         insertFirstParent(L,P);
     } else {
@@ -82,15 +80,17 @@ void printParent(List_parent L) {
    adr_parent P = first(L);
 
    while ( P != NULL) {
-       cout << info(P) << endl;
+       cout << info(P).judul << endl;
+       cout << info(P).tahunKaset << endl;
+       cout << info(P).genre << endl;
        P = next(P);
    }
 }
 
-adr_parent findElm(List_parent L, infotype_parent x) {
+adr_parent findElm(List_parent L, string x) { ///Untuk Sementara judul semestinya ID dari Kaset.
     adr_parent P = first(L);
 
-    while ((P != NULL) && (info(P) != x)){
+    while ((P != NULL) && (info(P).judul != x)){
         P = next(P);
     }
     return P;
