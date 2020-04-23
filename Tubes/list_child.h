@@ -41,6 +41,7 @@ void deleteLastChild(List_child &L, adr_child &P);
 void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
 
 void insertSortChild(List_child &L, infotype_child x);
+void deleteListChild(List_child &L, infotype_child x);
 
 adr_child alokasiChild(infotype_child x);
 void dealokasiChild(adr_child &P);

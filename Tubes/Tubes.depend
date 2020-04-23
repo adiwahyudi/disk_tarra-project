@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1587655942 source:d:\strukdat\tugasbesarstd\tubes\list_parent.cpp
+1587656618 source:d:\strukdat\tugasbesarstd\tubes\list_parent.cpp
 	"list_parent.h"
 
-1587655316 d:\strukdat\tugasbesarstd\tubes\list_parent.h
+1587658494 d:\strukdat\tugasbesarstd\tubes\list_parent.h
 	<iostream>
 
 1587647655 source:d:\strukdat\tugasbesarstd\tubes\list_relasi.cpp
 	"list_relasi.h"
 
-1587655526 source:d:\strukdat\tugasbesarstd\tubes\main.cpp
+1587658494 source:d:\strukdat\tugasbesarstd\tubes\main.cpp
 	<iostream>
 	"list_parent.h"
 	"list_child.h"
@@ -17,7 +17,7 @@
 1587655217 source:d:\strukdat\tugasbesarstd\tubes\list_child.cpp
 	"list_child.h"
 
-1587652989 d:\strukdat\tugasbesarstd\tubes\list_child.h
+1587658494 d:\strukdat\tugasbesarstd\tubes\list_child.h
 	<iostream>
 
 1587655123 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.cpp

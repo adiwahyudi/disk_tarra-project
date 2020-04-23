@@ -114,6 +114,17 @@ void insertSortChild(List_child &L, infotype_child x){
     }
 }
 
+void deleteListChild(List_child &L, infotype_child x){
+    adr_child P = findElmChild(L, x.NoIdent);
+    if(P != NULL){
+        if(P = first(L)){
+            deleteFirstChild(L, P);
+        } else {
+            deleteAfterChild(L, prev(P), P);
+        }
+    }
+}
+
 void printChild(List_child L) {
     adr_child P = first(L);
     do {

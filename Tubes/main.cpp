@@ -46,21 +46,6 @@ void Menu(){
             insertSortChild(ListC,child);
             cout << "Selamat data berhasil dibuat!" <<endl;
             cout << endl;
-            printChild(ListC);
-            break;
-        case 2:
-            cout << "Masukkan Judul: " << endl;
-            cin.get();
-            getline(cin, parent.judul);
-            cout << "Masukkan Tahun Kaset: " << endl;
-            cin >> parent.tahunKaset;
-            cout << "Masukkan Genre: " << endl;
-            cin >> parent.genre;
-            insertSortParent(ListP, parent);
-            cout<<endl;
-            printParent(ListP);
-            cout << endl;
-            /// print
             break;
         case 2:
 
@@ -105,7 +90,7 @@ void Menu(){
 
             break;
         case 6:
-
+            deleteListChild(ListC, child);
             break;
         case 7:
 
