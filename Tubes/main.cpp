@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 
 #include "list_parent.h"
 #include "list_child.h"
@@ -23,29 +24,33 @@ void Menu(){
     adr_relasi Rel;
 
     string jenis;
+    int cariNoIdent;
+    string cariNamaKaset;
     int pilihMenu,Nmr;
     do{
         cout << "=========PEMINJAMAN KASET===========" << endl;
         cout << "1. Memasukkan Data Peminjam" << endl;
         cout << "2. Memasukkan Data Kaset " << endl;
-        cout << "3. Menampilkan Data Peminjam/ Kaset " << endl;
-        cout << "4. Search Kaset" << endl;
-        cout << "5. Edit Data Peminjam" << endl;
-        cout << "6. Delete Data Peminjam Kaset" << endl;
-        cout << "7. Rekomendasi Film" << endl;
+        cout << "3. Meminjam Kaset " << endl;
+        cout << "4. Menampilkan Data Peminjam / Kaset " << endl;
+        cout << "5. Search Kaset" << endl;
+        cout << "6. Edit Data Peminjam" << endl;
+        cout << "7. Delete Data Peminjam Kaset" << endl;
+        cout << "8. Rekomendasi Film" << endl;
         cout << "0. Quit" << endl;
         cout << "\nChoose Menu : ";
         cin >> pilihMenu;
+        system("CLS");
         switch(pilihMenu){
         case 1:
-            cout << "Masukan Nama Anda:";
+            cout << "Masukan Nama Anda : ";
             cin.get();
             getline(cin, child.Nama);
-            cout << "Masukan Nomor Identitas:";
+            cout << "Masukan Nomor Identitas : ";
             cin >> child.NoIdent;
             insertSortChild(ListC,child);
-            cout << "Selamat data berhasil dibuat!" <<endl;
-            cout << endl;
+            cout << "\nSelamat data berhasil dibuat!" <<endl;
+            bersih();
             break;
         case 2:
 
@@ -69,8 +74,26 @@ void Menu(){
             cin >> parent.genre;
             insertLastParent(ListP,alokasiParent(parent));
             /// insertsorted belum dibuat
+            bersih();
             break;
         case 3:
+            cout << "Silahkan masukan No Identitas anda : ";
+            cin >> cariNoIdent;
+            cout << "Judul Kaset : ";
+            cin.get();
+            getline(cin,cariNamaKaset);
+            Chi = findElmChild(ListC,cariNoIdent);
+            Par = findElmParent(ListP,cariNamaKaset);
+            if (Chi && Par) {
+               Rel = alokasiRelasi(Par,Chi);
+               insertLastRelasi(ListR,Rel);
+            } else {
+                cout << "Maaf tidak terdaftar sebagai Member"<<endl;
+            }
+            cout << "Selamat anda berhasil menyewa kaset!" << endl;
+            bersih();
+            break;
+        case 4:
             cout << "1. Menampilkan Data peminjam" << endl;
             cout << "2. Menampilkan Kaset " << endl;
             cout << "3. Menampilkan Data Peminjam dan Kasetnya " << endl;
@@ -84,10 +107,10 @@ void Menu(){
                printRelasi(ListR);
             }
             break;
-        case 4:
-            break;
         case 5:
-
+            randomkodeKaset();
+            cout<<endl;
+            randomIDmember();
             break;
         case 6:
             deleteListChild(ListC, child);

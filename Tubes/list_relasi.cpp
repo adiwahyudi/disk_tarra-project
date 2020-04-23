@@ -87,8 +87,16 @@ adr_relasi findElm(List_relasi L, adr_parent P, adr_child C){
 void printRelasi(List_relasi L){
     adr_relasi P = first(L);
     while (P != NULL){
-        cout << "nanti" << endl;
+        cout << info(child(P)).Nama <<" menyewa kaset berjudul ";
+        cout << info(parent(P)).judul <<" seharga Rp." << info(parent(P)).harga <<endl;
         P = next(P);
     }
-
+    cout<<endl;
 }
+
+void bersih (){
+    system("pause > 0 | echo enter untuk melanjutkan..");
+    system("CLS");
+}
+
+

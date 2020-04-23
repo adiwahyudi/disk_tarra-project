@@ -2,7 +2,7 @@
 #define LIST_RELASI_H_INCLUDED
 
 #include <iostream>
-
+#include <stdlib.h>
 #define next(P) P->next
 
 #define first(L) L.first
@@ -34,9 +34,10 @@ void deleteFirstRelasi(List_relasi &L, adr_relasi &P);
 void deleteLastRelasi(List_relasi &L, adr_relasi &P);
 void deleteAfterRelasi(adr_relasi Prec, adr_relasi &P);
 
-adr_relasi alokasi( adr_parent P, adr_child C);
-void dealokasi(adr_relasi &P);
+adr_relasi alokasiRelasi( adr_parent P, adr_child C);
+void dealokasiRelasi(adr_relasi &P);
 adr_relasi findElm(List_relasi L, adr_parent P, adr_child C);
 void printRelasi(List_relasi L);
 
+void bersih();
 #endif // LIST_RELASI_H_INCLUDED
