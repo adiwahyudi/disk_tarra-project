@@ -29,7 +29,7 @@ void insertFirstParent(List_parent &L, adr_parent P) {
         first(L) = P;
     }
 }
-void insertAfterParent(adr_parent Prec, adr_parent P){
+void insertAfterParent(List_parent &L, adr_parent Prec, adr_parent P){
 
     next(P) = next(Prec);
     next(Prec) = P;
@@ -76,13 +76,30 @@ void deleteAfterParent(List_parent &L, adr_parent Prec, adr_parent &P){
         next(Prec) = P;
         next(P) = NULL;
 }
+
+void insertSortParent(List_parent &L, infotype_parent x){
+    adr_parent Q;
+    adr_parent P = first(L);
+    if(P == NULL){
+        insertFirstParent(L, alokasiParent(x));
+    } else if (info(last(L)).judul <= x.judul){
+        insertLastParent(L, alokasiParent(x));
+    } else {
+        while(P != first(L) && info(P).judul < x.judul){
+            Q = P;
+            P = next(P);
+        }
+        insertAfterParent(L, Q, alokasiParent(x));
+    }
+}
+
 void printParent(List_parent L) {
    adr_parent P = first(L);
 
    while ( P != NULL) {
-       cout << info(P).judul << endl;
-       cout << info(P).tahunKaset << endl;
-       cout << info(P).genre << endl;
+       cout << "Judul : " << info(P).judul << endl;
+       cout << "Tahun : " << info(P).tahunKaset << endl;
+       cout << "Genre : " << info(P).genre << endl;
        P = next(P);
    }
 }

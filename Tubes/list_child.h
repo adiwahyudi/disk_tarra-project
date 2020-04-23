@@ -14,7 +14,7 @@
 using namespace std;
 
 struct InfoPenyewa {
-    string NoIdent;
+    int NoIdent;
     string Nama;
 };
 
@@ -35,14 +35,16 @@ struct List_child{
 void createListChild(List_child &L);
 void insertFirstChild(List_child &L, adr_child P);
 void insertLastChild(List_child &L, adr_child P);
-void insertAfterChild(adr_child Prec, adr_child P);
+void insertAfterChild(List_child &L, adr_child &Prec, adr_child P);
 void deleteFirstChild(List_child &L, adr_child &P);
 void deleteLastChild(List_child &L, adr_child &P);
 void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
 
+void insertSortChild(List_child &L, infotype_child x);
+
 adr_child alokasiChild(infotype_child x);
 void dealokasiChild(adr_child &P);
-adr_child findElmChild(List_child L, infotype_child x);
+adr_child findElmChild(List_child L, string x);
 void printChild(List_child L);
 
 

@@ -34,14 +34,15 @@ void Menu(){
         switch(pilihMenu){
         case 1:
             cout << "Masukan Nama Anda:";
-            cin.get();
             getline(cin, child.Nama);
+            cout<<endl;
             cout << "Masukan Nomor Identitas:";
-            cin >> child.NoIdent;
+            cin.get();
+            getline(cin, child.NoIdent);
             insertSortChild(ListC,child);
             cout << "Selamat data berhasil dibuat!" <<endl;
             cout << endl;
-            printChild(ListC);
+            printChild(L);
             break;
         case 2:
             cout << "Masukkan Judul: " << endl;
@@ -51,10 +52,7 @@ void Menu(){
             cin >> parent.tahunKaset;
             cout << "Masukkan Genre: " << endl;
             cin >> parent.genre;
-            insertSortParent(ListP, parent);
-            cout<<endl;
-            printParent(ListP);
-            cout << endl;
+            /// insertsorted belum dibuat
             break;
         case 3:
             cout << "1. Menampilkan Data peminjam" << endl;
@@ -63,11 +61,11 @@ void Menu(){
             cout << "   Pilih : " << endl;
             cin >> Nmr;
             if(Nmr == 1){
-                //printChild(L);
+                printChild(L);
             } else if(Nmr == 2){
-                //printParent(L);
+                printParent(L);
             } else if(Nmr == 3){
-               //printRelasi(L);
+               printRelasi(L);
             }
             break;
         case 4:
