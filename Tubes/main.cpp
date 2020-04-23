@@ -18,6 +18,11 @@ void Menu(){
     createListParent(ListP);
     createListRelasi(ListR);
 
+    adr_child Chi;
+    adr_parent Par;
+    adr_relasi Rel;
+
+    string jenis;
     int pilihMenu,Nmr;
     do{
         cout << "=========PEMINJAMAN KASET===========" << endl;
@@ -41,34 +46,45 @@ void Menu(){
             /// insert
             cout << "Selamat data berhasil dibuat!" <<endl;
             /// print
-
             break;
         case 2:
-            cout << "Masukkan Judul: " << endl;
+
+            cout << "Pilih Jenis Kaset ( Film / Musik ) : ";
+            cin >> jenis ;
+
+            if (jenis == "musik" || jenis == "Musik" || jenis == "MUSIK" ) {
+                parent.harga = 75000;
+                parent.tipe = "Musik";
+            } else if ( jenis == "film" || jenis == "Film" || jenis == "FILM" ) {
+                parent.harga = 100000;
+                parent.tipe = "Film";
+            }
+
+            cout << "Masukkan Judul : ";
+            cin.get();
             getline(cin, parent.judul);
-            cin.get()
-            cout << "Masukkan Tahun Kaset: " << endl;
+            cout << "Masukkan Tahun Kaset: ";
             cin >> parent.tahunKaset;
-            cout << "Masukkan Genre: " << endl;
-            getline(cin ,parent.genre);
+            cout << "Masukkan Genre: ";
+            cin >> parent.genre;
+            insertLastParent(ListP,alokasiParent(parent));
             /// insertsorted belum dibuat
             break;
         case 3:
             cout << "1. Menampilkan Data peminjam" << endl;
             cout << "2. Menampilkan Kaset " << endl;
-            cout << "3. Menampilkan Data Peminjam Kaset " << endl;
-            cout << "   Pilih : " << endl;
+            cout << "3. Menampilkan Data Peminjam dan Kasetnya " << endl;
+            cout << "   Pilih : ";
             cin >> Nmr;
             if(Nmr == 1){
-                //printChild(L);
+                printChild(ListC);
             } else if(Nmr == 2){
-                //printParent(L);
+                printParent(ListP);
             } else if(Nmr == 3){
-               //printRelasi(L);
+               printRelasi(ListR);
             }
             break;
         case 4:
-
             break;
         case 5:
 

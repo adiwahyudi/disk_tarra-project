@@ -16,6 +16,8 @@ struct InfoKaset {
     string judul;
     int tahunKaset;
     string genre;
+    int harga;
+    string tipe;
 };
 
 typedef InfoKaset infotype_parent;
@@ -39,8 +41,9 @@ void deleteFirstParent(List_parent &L, adr_parent &P);
 void deleteLastParent(List_parent &L, adr_parent &P);
 void deleteAfterParent(adr_parent Prec, adr_parent &P);
 
-adr_parent alokasi(infotype_parent x);
+adr_parent alokasiParent(infotype_parent x);
 void dealokasi(adr_parent &P);
 adr_parent findElm(List_parent L, infotype_parent x);
 void printParent(List_parent L);
+
 #endif // LIST_PARENT_H_INCLUDED

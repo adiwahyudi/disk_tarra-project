@@ -45,5 +45,4 @@ void dealokasiChild(adr_child &P);
 adr_child findElmChild(List_child L, infotype_child x);
 void printChild(List_child L);
 
-
 #endif // LIST_CHILD_H_INCLUDED
