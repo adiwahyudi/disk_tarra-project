@@ -15,6 +15,8 @@ adr_parent alokasiParent(infotype_parent x) {
     info(P).judul = x.judul;
     info(P).tahunKaset = x.tahunKaset;
     info(P).genre = x.genre;
+    info(P).harga = x.harga;
+    info(P).tipe = x.tipe;
     next(P) = NULL;
     return P;
 }
@@ -97,9 +99,11 @@ void printParent(List_parent L) {
    adr_parent P = first(L);
 
    while ( P != NULL) {
-       cout << "Judul : " << info(P).judul << endl;
-       cout << "Tahun : " << info(P).tahunKaset << endl;
-       cout << "Genre : " << info(P).genre << endl;
+       cout << "\nTipe Kaset : " << info(P).tipe << endl;
+       cout << "Judul Kaset : " << info(P).judul << endl;
+       cout << "Tahun Kaset : " << info(P).tahunKaset << endl;
+       cout << "Genre Kaset : " << info(P).genre << endl;
+       cout << "Harga Kaset : \n" << info(P).harga << endl;
        P = next(P);
    }
 }
