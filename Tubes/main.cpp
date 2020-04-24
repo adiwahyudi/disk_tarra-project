@@ -124,7 +124,23 @@ void Menu(){
 
             break;
         case 6:
-            deleteListChild(ListC, child);
+            cout << "1. Menghapus data peminjam" << endl;
+            cout << "2. Menghapus data kaset " << endl;
+            cout << "   Pilih : ";
+            cin >> Nmr;
+            if(Nmr == 1){
+                cout << "Masukkan Nomor Identitas : ";
+                cin >> child.NoIdent;
+                if(findElmChild(ListC, child.NoIdent) != NULL){
+                    deleteListChild(ListC, child);
+                } else {
+                    cout << "Not found" << endl;
+                }
+            } else if(Nmr == 2){
+                cout << "Masukkan Judul : ";
+                cin >> parent.judul;
+            }
+
             break;
         case 7:
 
