@@ -12,6 +12,7 @@ adr_child alokasiChild(infotype_child x) {
     adr_child P = new elmlist_child;
     info(P).NoIdent = x.NoIdent;
     info(P).Nama = x.Nama;
+    info(P).memberID = x.memberID;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
@@ -132,6 +133,7 @@ void printChild(List_child L) {
         cout << "Nama            : " << info(P).Nama << endl;
         cout << "Nomer Identitas : " << info(P).NoIdent << endl;
         P = next(P);
+        cout<<endl;
     } while (P != first(L));
 }
 
@@ -150,7 +152,7 @@ void dealokasiChild(adr_child &P) {
     delete P;
 }
 
-void randomIDmember(){
-    int rndm = 1000 + rand() % 100000;
-    cout << rndm << endl;
+int randomIDmember(){
+    int rndm = 100000 + rand() % 999999;
+    return rndm ;
 }

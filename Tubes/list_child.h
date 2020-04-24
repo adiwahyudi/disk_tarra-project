@@ -50,5 +50,5 @@ void dealokasiChild(adr_child &P);
 adr_child findElmChild(List_child L, int x);
 void printChild(List_child L);
 
-void randomIDmember();
+int randomIDmember();
 #endif // LIST_CHILD_H_INCLUDED

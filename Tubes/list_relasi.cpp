@@ -95,8 +95,7 @@ void printRelasi(List_relasi L){
 }
 
 void bersih (){
-    system("pause > 0 | echo enter untuk melanjutkan..");
+    cout<<endl;
+    system("pause > 0 | echo tekan enter untuk melanjutkan..");
     system("CLS");
 }
-
-

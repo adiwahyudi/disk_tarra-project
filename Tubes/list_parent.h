@@ -51,5 +51,5 @@ void dealokasiParent(adr_parent &P);
 adr_parent findElmParent(List_parent L, string x);
 void printParent(List_parent L);
 
-void randomkodeKaset();
+int randomkodeKaset();
 #endif // LIST_PARENT_H_INCLUDED
