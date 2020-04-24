@@ -12,6 +12,7 @@ adr_child alokasiChild(infotype_child x) {
     adr_child P = new elmlist_child;
     info(P).NoIdent = x.NoIdent;
     info(P).Nama = x.Nama;
+    info(P).memberID = x.memberID;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
@@ -117,7 +118,7 @@ void insertSortChild(List_child &L, infotype_child x){
 void deleteListChild(List_child &L, infotype_child x){
     adr_child P = findElmChild(L, x.NoIdent);
     if(P != NULL){
-        if(P = first(L)){
+        if(P == first(L)){
             deleteFirstChild(L, P);
         } else {
             deleteAfterChild(L, prev(P), P);
@@ -128,9 +129,11 @@ void deleteListChild(List_child &L, infotype_child x){
 void printChild(List_child L) {
     adr_child P = first(L);
     do {
+        cout << "ID Member       : " << info(P).memberID << endl;
         cout << "Nama            : " << info(P).Nama << endl;
         cout << "Nomer Identitas : " << info(P).NoIdent << endl;
         P = next(P);
+        cout<<endl;
     } while (P != first(L));
 }
 
@@ -147,4 +150,9 @@ adr_child findElmChild(List_child L, int x) { ///Untuk Sementara NoIdent semesti
 }
 void dealokasiChild(adr_child &P) {
     delete P;
+}
+
+int randomIDmember(){
+    int rndm = 100000 + rand() % 999999;
+    return rndm ;
 }

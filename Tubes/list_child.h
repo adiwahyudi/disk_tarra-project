@@ -3,6 +3,7 @@
 #define LIST_CHILD_H_INCLUDED
 
 #include <iostream>
+#include <stdlib.h>
 
 #define next(P) P->next
 #define prev(P) P->prev
@@ -16,6 +17,7 @@ using namespace std;
 struct InfoPenyewa {
     int NoIdent;
     string Nama;
+    int memberID;
 };
 
 typedef InfoPenyewa infotype_child;
@@ -45,7 +47,8 @@ void deleteListChild(List_child &L, infotype_child x);
 
 adr_child alokasiChild(infotype_child x);
 void dealokasiChild(adr_child &P);
-adr_child findElmChild(List_child L, string x);
+adr_child findElmChild(List_child L, int x);
 void printChild(List_child L);
 
+int randomIDmember();
 #endif // LIST_CHILD_H_INCLUDED

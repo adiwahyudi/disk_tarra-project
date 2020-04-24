@@ -17,6 +17,7 @@ adr_parent alokasiParent(infotype_parent x) {
     info(P).genre = x.genre;
     info(P).harga = x.harga;
     info(P).tipe = x.tipe;
+    info(P).kodeKaset = x.kodeKaset;
     next(P) = NULL;
     return P;
 }
@@ -94,21 +95,26 @@ void insertSortParent(List_parent &L, infotype_parent x){
         insertAfterParent(L, Q, alokasiParent(x));
     }
 }
+void dealokasiParent (adr_parent &P){
+    delete P;
+}
 
 void printParent(List_parent L) {
    adr_parent P = first(L);
 
    while ( P != NULL) {
-       cout << "\nTipe Kaset : " << info(P).tipe << endl;
-       cout << "Judul Kaset : " << info(P).judul << endl;
-       cout << "Tahun Kaset : " << info(P).tahunKaset << endl;
-       cout << "Genre Kaset : " << info(P).genre << endl;
-       cout << "Harga Kaset : \n" << info(P).harga << endl;
+       cout << "\nKode Kaset\t: " << info(P).kodeKaset << endl;
+       cout << "Tipe Kaset\t: " << info(P).tipe << endl;
+       cout << "Judul Kaset\t: " << info(P).judul << endl;
+       cout << "Tahun Kaset\t: " << info(P).tahunKaset << endl;
+       cout << "Genre Kaset\t: " << info(P).genre << endl;
+       cout << "Harga Kaset\t: " << info(P).harga << endl;
        P = next(P);
+       cout<<endl;
    }
 }
 
-adr_parent findElm(List_parent L, string x) { ///Untuk Sementara judul semestinya ID dari Kaset.
+adr_parent findElmParent(List_parent L, string x) { ///Untuk Sementara judul semestinya ID dari Kaset.
     adr_parent P = first(L);
 
     while ((P != NULL) && (info(P).judul != x)){
@@ -116,3 +122,9 @@ adr_parent findElm(List_parent L, string x) { ///Untuk Sementara judul semestiny
     }
     return P;
 }
+
+int randomkodeKaset(){
+    int rndm = 100 + rand() % 999;
+    return rndm;
+}
+

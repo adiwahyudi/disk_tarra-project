@@ -4,6 +4,7 @@
 #define LIST_PARENT_H_INCLUDED
 
 #include <iostream>
+#include <stdlib.h>
 
 #define first(L) L.first
 #define last(L) L.last
@@ -18,6 +19,7 @@ struct InfoKaset {
     string genre;
     int harga;
     string tipe;
+    int kodeKaset;
 };
 
 typedef InfoKaset infotype_parent;
@@ -45,8 +47,9 @@ void insertSortParent(List_parent &L, infotype_parent x);
 void deleteListParent(List_parent &L, infotype_parent x);
 
 adr_parent alokasiParent(infotype_parent x);
-void dealokasi(adr_parent &P);
-adr_parent findElm(List_parent L, infotype_parent x);
+void dealokasiParent(adr_parent &P);
+adr_parent findElmParent(List_parent L, string x);
 void printParent(List_parent L);
 
+int randomkodeKaset();
 #endif // LIST_PARENT_H_INCLUDED
