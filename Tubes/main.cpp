@@ -135,6 +135,11 @@ void Menu(){
             } else if(Nmr == 2){
                 cout << "Masukkan Judul : ";
                 cin >> parent.judul;
+                if(findElmParent(ListP, parent.judul) != NULL){
+                    deleteListParent(ListP, parent);
+                } else {
+                    cout << "Not found" << endl;
+                }
             }
 
             break;

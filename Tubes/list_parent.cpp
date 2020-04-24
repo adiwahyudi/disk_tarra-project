@@ -95,6 +95,23 @@ void insertSortParent(List_parent &L, infotype_parent x){
         insertAfterParent(L, Q, alokasiParent(x));
     }
 }
+
+void deleteListParent(List_parent &L, infotype_parent x){
+    adr_parent P, Q;
+    P = first(L);
+    if(info(P).judul == x.judul){
+        deleteFirstParent(L, P);
+    } else if(info(last(L)).judul == x.judul){
+        deleteLastParent(L, P);
+    } else {
+        while (P != NULL && info(P).judul != x.judul){
+            Q = P;
+            P = next(P);
+        }
+        deleteAfterParent(L, Q, P);
+    }
+}
+
 void dealokasiParent (adr_parent &P){
     delete P;
 }

@@ -116,19 +116,20 @@ void insertSortChild(List_child &L, infotype_child x){
 }
 
 void deleteListChild(List_child &L, infotype_child x){
-    adr_child P;
+    adr_child P, Q;
     P = first(L);
-    if(P == first(L) && info(P).NoIdent == x.NoIdent){
-        deleteFirstChild(L,P);
+    if(info(first(L)).NoIdent == x.NoIdent){
+        deleteFirstChild(L, Q);
+        dealokasiChild(Q);
+    } else if(info(prev(P)).NoIdent == x.NoIdent){
+        deleteLastChild(L, Q);
+        dealokasiChild(Q);
     } else {
         do {
-            if(P == last(L) && info(P).NoIdent == x.NoIdent){
-                deleteLastChild(L,P);
-            } else if(info(P).NoIdent == x.NoIdent && first(L) != last(L)){
-                deleteAfterChild(L, prev(P), P);
-            }
             P = next(P);
-        } while (P != first(L));
+        } while (P != first(L) && info(prev(P)).NoIdent != x.NoIdent);
+        deleteAfterChild(L, prev(prev(P)), Q);
+        dealokasiChild(Q);
     }
 }
 
@@ -154,6 +155,7 @@ adr_child findElmChild(List_child L, int x) { ///Untuk Sementara NoIdent semesti
     } while(P != first(L));
     return NULL;
 }
+
 void dealokasiChild(adr_child &P) {
     delete P;
 }
