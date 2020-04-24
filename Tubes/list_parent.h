@@ -48,8 +48,10 @@ void deleteListParent(List_parent &L, infotype_parent x);
 
 adr_parent alokasiParent(infotype_parent x);
 void dealokasiParent(adr_parent &P);
-adr_parent findElmParent(List_parent L, string x);
+adr_parent findElmParent(List_parent L, int x);
 void printParent(List_parent L);
 
 int randomkodeKaset();
+void case2(List_parent &LP,infotype_parent &ITP);
+
 #endif // LIST_PARENT_H_INCLUDED

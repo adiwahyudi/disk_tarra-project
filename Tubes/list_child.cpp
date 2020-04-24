@@ -1,6 +1,7 @@
 /// Child as Double Circular Linked List and Penyewa
 
 #include "list_child.h"
+#include "list_relasi.h"
 
 void createListChild(List_child &L) {
     first(L) = NULL;
@@ -148,7 +149,7 @@ void printChild(List_child L) {
 adr_child findElmChild(List_child L, int x) { ///Untuk Sementara NoIdent semestinya ID dari Pengguna.
     adr_child P = first(L);
     do{
-        if(info(P).NoIdent == x ) {
+        if(info(P).memberID == x ) {
             return P;
         }
         P = next(P);
@@ -163,4 +164,21 @@ void dealokasiChild(adr_child &P) {
 int randomIDmember(){
     int rndm = 100000 + rand() % 999999;
     return rndm ;
+}
+void case1(List_child &L,infotype_child &ITC) {
+    cout << "Masukan Nama Anda\t: ";
+    cin.get();
+    getline(cin, ITC.Nama);
+    cout << "Masukan Nomor Identitas\t: ";
+    cin >> ITC.NoIdent;
+
+    ITC.memberID = randomIDmember();
+    if (findElmChild(L,ITC.memberID) != NULL){
+        ITC.memberID = randomIDmember();
+    }
+
+    insertSortChild(L,ITC);
+    cout << "\nSelamat data berhasil anda dibuat!" <<endl;
+    cout << "ID Member anda : "<<ITC.memberID<<" mohon untuk diingat!"<<endl;
+    bersih();
 }
