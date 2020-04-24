@@ -24,9 +24,8 @@ void Menu(){
     adr_relasi Rel;
 
     string jenis;
-    string cariNamaKaset;
-
     int cariNoIdent;
+    string cariNamaKaset;
     int pilihMenu,Nmr;
 
     do{
@@ -34,8 +33,8 @@ void Menu(){
         cout << "1. Memasukkan Data Peminjam" << endl;
         cout << "2. Memasukkan Data Kaset " << endl;
         cout << "3. Meminjam Kaset " << endl;
-        cout << "4. Menampilkan Data " << endl;
-        cout << "5. Hapus Data " << endl;
+        cout << "4. Menampilkan Data Peminjam / Kaset " << endl;
+        cout << "5. Search Kaset" << endl;
         cout << "6. Edit Data Peminjam" << endl;
         cout << "7. Delete Data Peminjam Kaset" << endl;
         cout << "8. Rekomendasi Film" << endl;
@@ -118,9 +117,6 @@ void Menu(){
             }
             break;
         case 5:
-            cout << "1. Menghapus data member " << endl;
-            cout << "2. Menghapus data kaset " << endl;
-            cout << "3. Menampilkan Data Peminjam dan Kasetnya " << endl;
 
             break;
         case 6:
