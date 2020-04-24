@@ -72,10 +72,10 @@ void dealokasiRelasi(adr_relasi &P){
     delete P;
 }
 
-adr_relasi findElm(List_relasi L, adr_parent P, adr_child C){
+adr_relasi findElmRelasi(List_relasi L, int diC, int diP){
     adr_relasi Q = first(L);
     while (Q != NULL) {
-        if ( (parent(Q)) == P && (child(Q)) == C){
+        if (info(parent(Q)).kodeKaset == diP  && info(child(Q)).memberID == diC){
             return Q;
         } else {
             Q = next(Q);
@@ -98,4 +98,24 @@ void bersih (){
     cout<<endl;
     system("pause > 0 | echo tekan enter untuk melanjutkan..");
     system("CLS");
+}
+void case3 (List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR) {
+
+    int cariIDmem;
+    int cariKodeKaset;
+
+    cout << "ID Member\t: ";
+    cin >> cariIDmem;
+    cout << "ID Kaset\t: ";
+    cin >> cariKodeKaset;
+    AC = findElmChild(LC,cariIDmem);AP = findElmParent(LP,cariKodeKaset);
+    if (AC && AP) {
+       AR = alokasiRelasi(AP,AC);
+       insertLastRelasi(LR,AR);
+       cout << "Selamat anda berhasil menyewa kaset!" << endl;
+    } else {
+        cout << "Maaf anda tidak terdaftar sebagai Member"<<endl;
+    }
+
+
 }

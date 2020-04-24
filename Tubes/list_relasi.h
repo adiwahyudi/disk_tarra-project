@@ -36,8 +36,9 @@ void deleteAfterRelasi(adr_relasi Prec, adr_relasi &P);
 
 adr_relasi alokasiRelasi( adr_parent P, adr_child C);
 void dealokasiRelasi(adr_relasi &P);
-adr_relasi findElm(List_relasi L, adr_parent P, adr_child C);
+adr_relasi findElmRelasi(List_relasi L, int diC, int diP);
 void printRelasi(List_relasi L);
 
 void bersih();
+void case3 (List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR);
 #endif // LIST_RELASI_H_INCLUDED

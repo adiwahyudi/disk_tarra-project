@@ -1,6 +1,7 @@
 /// Parent as Single Linked List and Kaset
 
 #include "list_parent.h"
+#include "list_relasi.h"
 
 void createListParent(List_parent &L) {
     first(L) = NULL;
@@ -114,10 +115,10 @@ void printParent(List_parent L) {
    }
 }
 
-adr_parent findElmParent(List_parent L, string x) { ///Untuk Sementara judul semestinya ID dari Kaset.
+adr_parent findElmParent(List_parent L, int x) {
     adr_parent P = first(L);
 
-    while ((P != NULL) && (info(P).judul != x)){
+    while ((P != NULL) && (info(P).kodeKaset != x)){
         P = next(P);
     }
     return P;
@@ -127,4 +128,34 @@ int randomkodeKaset(){
     int rndm = 100 + rand() % 999;
     return rndm;
 }
+void case2(List_parent &LP,infotype_parent &ITP){
+    string jenis;
+    cout << "Pilih Jenis Kaset ( Film / Musik ): ";
+    cin >> jenis ;
 
+    if (jenis == "musik" || jenis == "Musik" || jenis == "MUSIK" ) {
+        ITP.harga = 75000;
+        ITP.tipe = "Musik";
+    } else if ( jenis == "film" || jenis == "Film" || jenis == "FILM" ) {
+        ITP.harga = 100000;
+        ITP.tipe = "Film";
+    }
+
+    cout << "Masukkan Judul\t\t: ";
+    cin.get();
+    getline(cin, ITP.judul);
+    cout << "Masukkan Tahun Kaset\t: ";
+    cin >> ITP.tahunKaset;
+    cout << "Masukkan Genre\t\t: ";
+    cin >> ITP.genre;
+
+    ITP.kodeKaset = randomkodeKaset();
+    if(findElmParent(LP,ITP.kodeKaset) != NULL){
+        ITP.kodeKaset = randomkodeKaset();
+    }
+    cout << "\nSelamat anda berhasil menambahkan data kaset!" <<endl;
+    cout << "Kode kaset "<< ITP.judul << " adalah " << ITP.kodeKaset <<endl;
+    insertLastParent(LP,alokasiParent(ITP));
+    /// insertsorted belum dibuat
+    bersih();
+}

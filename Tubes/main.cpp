@@ -23,18 +23,14 @@ void Menu(){
     adr_parent Par;
     adr_relasi Rel;
 
-    string jenis;
-    int cariNoIdent;
-    string cariNamaKaset;
-    int pilihMenu,Nmr;
-
+    int pilihMenu,Nmr,INPUT;
     do{
         cout << "=========PEMINJAMAN KASET===========" << endl;
         cout << "1. Memasukkan Data Peminjam" << endl;
         cout << "2. Memasukkan Data Kaset " << endl;
         cout << "3. Meminjam Kaset " << endl;
-        cout << "4. Menampilkan Data Peminjam / Kaset " << endl;
-        cout << "5. Search Kaset" << endl;
+        cout << "4. Menampilkan Data " << endl;
+        cout << "5. Hapus Data " << endl;
         cout << "6. Edit Data Peminjam" << endl;
         cout << "7. Delete Data Peminjam Kaset" << endl;
         cout << "8. Rekomendasi Film" << endl;
@@ -44,65 +40,19 @@ void Menu(){
         system("CLS");
         switch(pilihMenu){
         case 1:
-            cout << "Masukan Nama Anda\t: ";
-            cin.get();
-            getline(cin, child.Nama);
-            cout << "Masukan Nomor Identitas\t: ";
-            cin >> child.NoIdent;
-            child.memberID = randomIDmember();
-            insertSortChild(ListC,child);
-            cout << "\nSelamat data berhasil anda dibuat!" <<endl;
-            cout << "ID Member anda : "<<child.memberID<<" mohon untuk diingat!"<<endl;
-            bersih();
+            case1(ListC,child);
             break;
         case 2:
-
-            cout << "Pilih Jenis Kaset ( Film / Musik )\t: ";
-            cin >> jenis ;
-
-            if (jenis == "musik" || jenis == "Musik" || jenis == "MUSIK" ) {
-                parent.harga = 75000;
-                parent.tipe = "Musik";
-            } else if ( jenis == "film" || jenis == "Film" || jenis == "FILM" ) {
-                parent.harga = 100000;
-                parent.tipe = "Film";
-            }
-
-            cout << "Masukkan Judul\t: ";
-            cin.get();
-            getline(cin, parent.judul);
-            cout << "Masukkan Tahun Kaset\t: ";
-            cin >> parent.tahunKaset;
-            cout << "Masukkan Genre\t: ";
-            cin >> parent.genre;
-            parent.kodeKaset = randomkodeKaset();
-            cout << "\nSelamat anda berhasil menambahkan data kaset!" <<endl;
-            cout << "Kode kaset "<< parent.judul << " adalah " << parent.kodeKaset <<endl;
-            insertLastParent(ListP,alokasiParent(parent));
-            /// insertsorted belum dibuat
-            bersih();
+            case2(ListP,parent);
             break;
         case 3:
-            cout << "Silahkan masukan ID Member anda\t: ";
-            cin >> cariNoIdent;
-            cout << "Judul Kaset : ";
-            cin.get();
-            getline(cin,cariNamaKaset);
-            Chi = findElmChild(ListC,cariNoIdent);Par = findElmParent(ListP,cariNamaKaset);
-            if (Chi && Par) {
-               Rel = alokasiRelasi(Par,Chi);
-               insertLastRelasi(ListR,Rel);
-            } else {
-                cout << "Maaf tidak terdaftar sebagai Member"<<endl;
-            }
-            cout << "Selamat anda berhasil menyewa kaset!" << endl;
-            bersih();
+            case3(ListC,ListP,ListR,Chi,Par,Rel);
             break;
         case 4:
-            cout << "1. Menampilkan Data peminjam" << endl;
-            cout << "2. Menampilkan Kaset " << endl;
-            cout << "3. Menampilkan Data Peminjam dan Kasetnya " << endl;
-            cout << "   Pilih : ";
+            cout << "1. Menampilkan Data Member" << endl;
+            cout << "2. Menampilkan Data Kaset " << endl;
+            cout << "3. Menampilkan Member dan Pinjamannya " << endl;
+            cout << "\nChoose Menu : ";
             cin >> Nmr;
             system("CLS");
             if(Nmr == 1){
@@ -117,6 +67,9 @@ void Menu(){
             }
             break;
         case 5:
+            cout << "1. Menghapus data member " << endl;
+            cout << "2. Menghapus data kaset " << endl;
+            cout << "3. Menampilkan Data Peminjam dan Kasetnya " << endl;
 
             break;
         case 6:
@@ -125,16 +78,21 @@ void Menu(){
             cout << "   Pilih : ";
             cin >> Nmr;
             if(Nmr == 1){
-                cout << "Masukkan Nomor Identitas : ";
-                cin >> child.NoIdent;
-                if(findElmChild(ListC, child.NoIdent) != NULL){
+                cout << "ID Member yang akan di hapus : ";
+                cin >> INPUT;
+                if(findElmChild(ListC, INPUT) != NULL){
                     deleteListChild(ListC, child);
                 } else {
-                    cout << "Not found" << endl;
+                    cout << "Maaf data tidak ada" <<endl;
                 }
             } else if(Nmr == 2){
-                cout << "Masukkan Judul : ";
-                cin >> parent.judul;
+                cout << "ID Kaset yang akan di hapus : ";
+                cin >> INPUT;
+                if (findElmParent(ListP,INPUT) != NULL ) {
+                    /// kosong we lah
+                } else {
+                    cout << "Maaf data tidak ada" <<endl;
+                }
             }
 
             break;
