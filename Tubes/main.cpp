@@ -71,23 +71,26 @@ void Menu(){
         case 5:
             cout << "1. Menghapus Data Member " << endl;
             cout << "2. Menghapus Data Kaset " << endl;
+            cout << "3. Tidak jadi membeli " << endl;
             cout << " \nChoose Menu";
             cin >> Nmr;
             if(Nmr == 1){
                 cout << "ID Member yang akan di hapus : ";
                 cin >> INPUT;
-                if(findElmChild(ListC, INPUT) != NULL){
-                    deleteListChild(ListC, INPUT);
-                } else {
-                    cout << "Maaf data tidak ada" <<endl;
+                if (findElmChild(ListC,INPUT) != NULL){
+                    if (cariChildDiRelasi(ListR,INPUT) != NULL){
+                        ///
+                    }
                 }
             } else if(Nmr == 2){
                 cout << "ID Kaset yang akan di hapus : ";
                 cin >> INPUT;
-                if (findElmParent(ListP,INPUT) != NULL ) {
-                    /// kosong we lah
-                } else {
-                    cout << "Maaf data tidak ada" <<endl;
+                if (findElmParent(ListP,INPUT) != NULL) {
+                    if(cariParentDiRelasi(ListR,INPUT) != NULL) {
+                        deleteParentdiRelasi(ListR,INPUT);
+                    } else {
+                        deleteListParent(ListP,INPUT);
+                    }
                 }
             }
 

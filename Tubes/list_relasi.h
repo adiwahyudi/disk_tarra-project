@@ -41,4 +41,9 @@ void printRelasi(List_relasi L);
 
 void bersih();
 void case3 (List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR);
+adr_relasi cariParentDiRelasi(List_relasi LR,int x);
+adr_relasi cariChildDiRelasi(List_relasi LR,int x);
+void deleteParentdiRelasi(List_relasi &LR,int AP);
+void deleteListRelasi(List_relasi &LR,int Par,int Chi);
+
 #endif // LIST_RELASI_H_INCLUDED

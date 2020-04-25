@@ -43,8 +43,8 @@ void deleteFirstParent(List_parent &L, adr_parent &P);
 void deleteLastParent(List_parent &L, adr_parent &P);
 void deleteAfterParent(List_parent &L, adr_parent Prec, adr_parent &P);
 
-void insertSortParent(List_parent &L, infotype_parent x);
-void deleteListParent(List_parent &L, infotype_parent x);
+void insertSortParent(List_parent &L,adr_parent Q);
+void deleteListParent(List_parent &L, int x);
 
 adr_parent alokasiParent(infotype_parent x);
 void dealokasiParent(adr_parent &P);

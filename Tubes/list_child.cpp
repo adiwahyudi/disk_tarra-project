@@ -120,7 +120,7 @@ void deleteListChild(List_child &L, int x){
     adr_child P, Q;
     P = first(L);
     if(info(first(L)).memberID == x){
-        deleteFirstChild(L, Q   );
+        deleteFirstChild(L,Q);
         dealokasiChild(Q);
     } else if(info(prev(P)).memberID == x){
         deleteLastChild(L, Q);
