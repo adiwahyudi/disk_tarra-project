@@ -25,15 +25,14 @@ void Menu(){
 
     int pilihMenu,Nmr,INPUT;
     do{
-        cout << "=========PEMINJAMAN KASET===========" << endl;
-        cout << "1. Memasukkan Data Peminjam" << endl;
-        cout << "2. Memasukkan Data Kaset " << endl;
-        cout << "3. Meminjam Kaset " << endl;
+        cout << "=========== PEMBELIAN KASET ===========" << endl;
+        cout << "1. Membuat Data Member" << endl;
+        cout << "2. Membuat Data Kaset " << endl;
+        cout << "3. Membeli Kaset " << endl;
         cout << "4. Menampilkan Data " << endl;
         cout << "5. Hapus Data " << endl;
-        cout << "6. Edit Data Peminjam" << endl;
-        cout << "7. Delete Data Peminjam Kaset" << endl;
-        cout << "8. Rekomendasi Film" << endl;
+        cout << "6. Rekomendasi Film" << endl;
+        cout << "7. Total Harga Kaset" << endl;
         cout << "0. Quit" << endl;
         cout << "\nChoose Menu : ";
         cin >> pilihMenu;
@@ -51,7 +50,8 @@ void Menu(){
         case 4:
             cout << "1. Menampilkan Data Member" << endl;
             cout << "2. Menampilkan Data Kaset " << endl;
-            cout << "3. Menampilkan Member dan Pinjamannya " << endl;
+            cout << "3. Menampilkan Member dan Belanjaannya " << endl; /// Pas child ada di relasi terus child dihapus berhasil , tapi pas nampilin relasi gagal.
+            cout << "4. Menampilkan Kaset Dibeli oleh Siapa " << endl;
             cout << "\nChoose Menu : ";
             cin >> Nmr;
             system("CLS");
@@ -64,24 +64,20 @@ void Menu(){
             } else if(Nmr == 3){
                printRelasi(ListR);
                bersih();
+            } else if (Nmr == 4) {
+                /// buat dulu printnya
             }
             break;
         case 5:
-            cout << "1. Menghapus data member " << endl;
-            cout << "2. Menghapus data kaset " << endl;
-            cout << "3. Menampilkan Data Peminjam dan Kasetnya " << endl;
-
-            break;
-        case 6:
-            cout << "1. Menghapus data peminjam" << endl;
-            cout << "2. Menghapus data kaset " << endl;
-            cout << "   Pilih : ";
+            cout << "1. Menghapus Data Member " << endl;
+            cout << "2. Menghapus Data Kaset " << endl;
+            cout << " \nChoose Menu";
             cin >> Nmr;
             if(Nmr == 1){
                 cout << "ID Member yang akan di hapus : ";
                 cin >> INPUT;
                 if(findElmChild(ListC, INPUT) != NULL){
-                    deleteListChild(ListC, child);
+                    deleteListChild(ListC, INPUT);
                 } else {
                     cout << "Maaf data tidak ada" <<endl;
                 }
@@ -94,6 +90,9 @@ void Menu(){
                     cout << "Maaf data tidak ada" <<endl;
                 }
             }
+
+            break;
+        case 6:
 
             break;
         case 7:

@@ -103,32 +103,32 @@ void deleteAfterChild(List_child &L, adr_child Prec, adr_child &P){
 void insertSortChild(List_child &L, infotype_child x){
     adr_child Q;
     adr_child P = first(L);
-    if(P == NULL || info(first(L)).NoIdent >= x.NoIdent){
+    if(P == NULL || info(first(L)).memberID >= x.memberID){
         insertFirstChild(L, alokasiChild(x));
-    } else if (info(last(L)).NoIdent <= x.NoIdent){
+    } else if (info(last(L)).memberID <= x.memberID){
         insertLastChild(L, alokasiChild(x));
     } else {
         do {
             Q = P;
             P = next(P);
-        } while(P != first(L) && info(P).NoIdent < x.NoIdent);
+        } while(P != first(L) && info(P).memberID < x.memberID);
         insertAfterChild(L, Q, alokasiChild(x));
     }
 }
 
-void deleteListChild(List_child &L, infotype_child x){
+void deleteListChild(List_child &L, int x){
     adr_child P, Q;
     P = first(L);
-    if(info(first(L)).NoIdent == x.NoIdent){
-        deleteFirstChild(L, Q);
+    if(info(first(L)).memberID == x){
+        deleteFirstChild(L, Q   );
         dealokasiChild(Q);
-    } else if(info(prev(P)).NoIdent == x.NoIdent){
+    } else if(info(prev(P)).memberID == x){
         deleteLastChild(L, Q);
         dealokasiChild(Q);
     } else {
         do {
             P = next(P);
-        } while (P != first(L) && info(prev(P)).NoIdent != x.NoIdent);
+        } while (P != first(L) && info(prev(P)).memberID != x);
         deleteAfterChild(L, prev(prev(P)), Q);
         dealokasiChild(Q);
     }
@@ -136,13 +136,18 @@ void deleteListChild(List_child &L, infotype_child x){
 
 void printChild(List_child L) {
     adr_child P = first(L);
-    do {
+    if (first(L) != NULL ) {
+        do {
         cout << "ID Member       : " << info(P).memberID << endl;
         cout << "Nama            : " << info(P).Nama << endl;
         cout << "Nomer Identitas : " << info(P).NoIdent << endl;
         P = next(P);
         cout<<endl;
     } while (P != first(L));
+    } else {
+        cout << "Tidak ada data member" <<endl;
+    }
+
 }
 
 
@@ -173,11 +178,8 @@ void case1(List_child &L,infotype_child &ITC) {
     cin >> ITC.NoIdent;
 
     ITC.memberID = randomIDmember();
-    if (findElmChild(L,ITC.memberID) != NULL){
-        ITC.memberID = randomIDmember();
-    }
-
     insertSortChild(L,ITC);
+
     cout << "\nSelamat data berhasil anda dibuat!" <<endl;
     cout << "ID Member anda : "<<ITC.memberID<<" mohon untuk diingat!"<<endl;
     bersih();

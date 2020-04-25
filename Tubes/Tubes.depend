@@ -25,23 +25,23 @@
 	<iostream>
 	<stdlib.h>
 
-1587745778 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.cpp
+1587793940 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.cpp
 	"list_child.h"
 	"list_relasi.h"
 
-1587737680 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.h
+1587793639 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_child.h
 	<iostream>
 	<stdlib.h>
 
-1587744603 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_parent.cpp
+1587746431 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_parent.cpp
 	"list_parent.h"
 	"list_relasi.h"
 
-1587739006 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_parent.h
+1587746431 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_parent.h
 	<iostream>
 	<stdlib.h>
 
-1587745606 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\main.cpp
+1587793767 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\main.cpp
 	<iostream>
 	<stdlib.h>
 	"list_parent.h"
@@ -54,7 +54,7 @@
 	"list_parent.h"
 	"list_child.h"
 
-1587742767 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
+1587794126 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
 	"list_relasi.h"
 
 1587745991 d:\strukdat\tugasbesarstd\tubes\list_relasi.h

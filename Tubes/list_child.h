@@ -1,4 +1,4 @@
-/// Child as Double Circular Linked List and Penyewa
+/// Child as Double Circular Linked List and Pembeli
 #ifndef LIST_CHILD_H_INCLUDED
 #define LIST_CHILD_H_INCLUDED
 
@@ -42,8 +42,8 @@ void deleteFirstChild(List_child &L, adr_child &P);
 void deleteLastChild(List_child &L, adr_child &P);
 void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
 
-void insertSortChild(List_child &L, infotype_child x);
-void deleteListChild(List_child &L, infotype_child x);
+void insertSortChild(List_child &L, int x);
+void deleteListChild(List_child &L, int x);
 
 adr_child alokasiChild(infotype_child x);
 void dealokasiChild(adr_child &P);

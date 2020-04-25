@@ -92,6 +92,9 @@ void printRelasi(List_relasi L){
         P = next(P);
     }
     cout<<endl;
+    if (P == NULL){
+        cout << "Tidak ada data pembelian"<<endl;
+    }
 }
 
 void bersih (){
@@ -99,7 +102,7 @@ void bersih (){
     system("pause > 0 | echo tekan enter untuk melanjutkan..");
     system("CLS");
 }
-void case3 (List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR) {
+void case3(List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR) {
 
     int cariIDmem;
     int cariKodeKaset;
@@ -116,6 +119,5 @@ void case3 (List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_par
     } else {
         cout << "Maaf anda tidak terdaftar sebagai Member"<<endl;
     }
-
-
+    bersih();
 }
