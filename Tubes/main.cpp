@@ -26,7 +26,7 @@ void Menu(){
     int pilihMenu,Nmr,INPUT,INPUT2;
     do{
         cout << "=========== PEMBELIAN KASET ===========" << endl;
-        cout << "1. Membuat Data Member" << endl;
+        cout << "1. Membuat Data Member " << endl;
         cout << "2. Membuat Data Kaset " << endl;
         cout << "3. Membeli Kaset " << endl;
         cout << "4. Menampilkan Data " << endl;
@@ -62,10 +62,12 @@ void Menu(){
                 printParent(ListP);
                 bersih();
             } else if(Nmr == 3){
-               printRelasi(ListR);
-               bersih();
+                printRelasi(ListR);
+                bersih();
             } else if (Nmr == 4) {
-                /// buat dulu printnya
+                cout << "ID Kaset : ";
+                cin >> INPUT;
+                printChildTOParent(ListR,INPUT);
             }
             break;
         case 5:
@@ -82,25 +84,25 @@ void Menu(){
                         deleteChilDiRelasi(ListR,INPUT);
                         deleteListChild(ListC,INPUT);
                     } else {
-                        cout<<"ABC";
                         deleteListChild(ListC,INPUT);
                     }
                 } else {
                     cout << "Tidak ada data" <<endl;
                 }
-                deleteListChild(ListC,INPUT);
+                bersih();
             } else if(Nmr == 2){
                 cout << "ID Kaset yang akan di hapus : ";
                 cin >> INPUT;
-                /*if (findElmParent(ListP,INPUT) != NULL) {
+                if (findElmParent(ListP,INPUT) != NULL) {
                     if(cariParentDiRelasi(ListR,INPUT) != NULL) {
                         deleteParentdiRelasi(ListR,INPUT);
                     } else {
                         deleteListParent(ListP,INPUT);
                     }
+                } else {
+                    cout << "Tidak ada data" <<endl;
                 }
-                */
-                deleteListParent(ListP,INPUT);
+                bersih();
 
             } else if (Nmr == 3) {
                 cout <<"ID Kaset : ";
@@ -108,6 +110,7 @@ void Menu(){
                 cout <<"ID Member : ";
                 cin >> INPUT2;
                 deleteListRelasi(ListR,INPUT2,INPUT);
+                bersih();
             }
 
             break;
@@ -115,10 +118,9 @@ void Menu(){
 
             break;
         case 7:
-
-            break;
-        case 8:
-
+            cout << "Masukan ID Member Anda : ";
+            cin >> INPUT;
+            hitungHargaKaset(ListR,INPUT);
             break;
         }
         if(pilihMenu == 0){

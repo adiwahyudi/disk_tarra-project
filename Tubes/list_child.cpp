@@ -171,6 +171,7 @@ int randomIDmember(){
     return rndm ;
 }
 void case1(List_child &L,infotype_child &ITC) {
+
     cout << "Masukan Nama Anda\t: ";
     cin.get();
     getline(cin, ITC.Nama);
@@ -183,4 +184,5 @@ void case1(List_child &L,infotype_child &ITC) {
     cout << "\nSelamat data berhasil anda dibuat!" <<endl;
     cout << "ID Member anda : "<<ITC.memberID<<" mohon untuk diingat!"<<endl;
     bersih();
+
 }

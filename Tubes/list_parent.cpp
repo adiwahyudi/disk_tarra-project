@@ -103,7 +103,7 @@ void deleteListParent(List_parent &L, int x){
             deleteLastParent(L,P);
         } else {
             adr_parent Q = first(L);
-            while (P != NULL && info(Q).kodeKaset < x) {
+            while (Q != NULL && info(Q).kodeKaset < x) {
                    P = Q;
                    Q = next(Q);
                 }

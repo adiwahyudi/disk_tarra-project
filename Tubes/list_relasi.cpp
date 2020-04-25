@@ -88,8 +88,8 @@ void printRelasi(List_relasi L){
     adr_relasi P = first(L);
     if (P != NULL) {
         while (P != NULL){
-        cout << info(child(P)).Nama <<" menyewa kaset berjudul ";
-        cout << info(parent(P)).judul <<" seharga Rp." << info(parent(P)).harga <<endl;
+        cout << info(child(P)).Nama <<" membeli kaset berjudul ";
+        cout << info(parent(P)).judul <<" seharga Rp. " << info(parent(P)).harga <<endl;
         P = next(P);
         }
     } else {
@@ -116,31 +116,12 @@ void case3(List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_pare
     if (AC && AP) {
        AR = alokasiRelasi(AP,AC);
        insertLastRelasi(LR,AR);
-       cout << "Selamat anda berhasil menyewa kaset!" << endl;
+       cout << "Selamat anda berhasil membeli kaset!" << endl;
     } else {
         cout << "Maaf anda tidak terdaftar sebagai Member"<<endl;
     }
     bersih();
 }
-/*adr_relasi cariChild(List_relasi &L,int C){
-
-    adr_relasi P = first(L);
-
-    while (P != NULL && info(child(P)).memberID != C){
-        P = next(P);
-    }
-    return P;
-}
-adr_relasi cariParent(List_relasi &L,int C){
-
-    adr_relasi P = first(L);
-
-    while (P != NULL && info(parent(P)).kodeKaset != C){
-        P = next(P);
-    }
-    return P;
-}
-*/
 adr_relasi cariParentDiRelasi(List_relasi LR,int x){
 
     adr_relasi P = first(LR);
@@ -160,7 +141,6 @@ adr_relasi cariChildDiRelasi(List_relasi LR,int x){
     adr_relasi P = first(LR);
 
     while (P != NULL) {
-        cout<<"A";
         if (info(child(P)).memberID == x){
             return P;
         } else {
@@ -195,54 +175,93 @@ void deleteParentdiRelasi(List_relasi &LR,int AP) {
 }
 
 void deleteChilDiRelasi(List_relasi &LR, int AP){
-    adr_relasi P,Q;
-    Q = first(LR);
-
-    while (cariChildDiRelasi(LR,AP) != NULL){
-        if(info(child(first(LR))).memberID == AP ){
-            cout<<"A";
-            deleteFirstRelasi(LR,P);
-            dealokasiRelasi(P);
-        } else if (info(child(last(LR))).memberID == AP){
-            cout<<"B";
-            deleteLastRelasi(LR,P);
-            dealokasiRelasi(P);
-        } else {
-            adr_relasi Q = first(LR);
-            while (P != NULL && info(child(Q)).memberID < AP) {
-                   P = Q;
-                   Q = next(Q);
-                }
-                cout<<"C";
-            deleteAfterRelasi(P,Q);
-            dealokasiRelasi(P);
-            }
-        }
-        Q = next(Q);
-}
-
-void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
-
-    adr_relasi P,Q;
-    Q = first(LR);
-
-    if ( info(parent(Q)).kodeKaset == Par && info(child(Q)).memberID == Chi ){
+    adr_relasi P;
+    if(info(child(first(LR))).memberID == AP ){
+        cout<<"A";
         deleteFirstRelasi(LR,P);
         dealokasiRelasi(P);
-    } else if (info(parent(last(LR))).kodeKaset == Par && info(child(last(LR))).memberID == Chi ){
+    } else if (info(child(last(LR))).memberID == AP){
+        cout<<"B";
         deleteLastRelasi(LR,P);
         dealokasiRelasi(P);
     } else {
-        while ( Q != NULL){
-            if (info(next(parent(Q))).kodeKaset == Par && info(next(child(Q))).memberID == Chi){
-                deleteAfterRelasi(Q,next(Q));
-                dealokasiRelasi(Q);
+        adr_relasi Q = first(LR);
+        while (P != NULL && info(child(Q)).memberID < AP) {
+               P = Q;
+               Q = next(Q);
             }
-            Q = next(Q);
+            cout<<"C";
+        deleteAfterRelasi(P,Q);
+        dealokasiRelasi(P);
         }
     }
+
+void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
+
+    adr_relasi P;
+
+    if (first(LR) != NULL){
+        if (info(child(first(LR))).memberID == Chi && info(parent(first(LR))).kodeKaset == Par){
+            deleteFirstRelasi(LR,P);
+            dealokasiRelasi(P);
+            cout << "Selamat anda tidak jadi membeli!" <<endl;
+        } else if(info(child(last(LR))).memberID == Chi && info(parent(last(LR))).kodeKaset == Par) {
+            deleteLastRelasi(LR,P);
+            dealokasiRelasi(P);
+            cout << "Selamat anda tidak jadi membeli!" <<endl;
+        } else {
+            adr_relasi Q = first(LR);
+            while (Q != NULL && info(child(Q)).memberID < Chi && info(parent(Q)).kodeKaset < Par) {
+                P = Q;
+                Q = next(Q);
+            }
+            deleteAfterRelasi(P,Q);
+            cout << "Selamat anda tidak jadi membeli!" <<endl;
+        }
+
+    } else {
+        cout << "Tidak ada data pembelian" <<endl;
+        bersih();
+    }
+}
+int hitungHargaKaset(List_relasi L,int X){ ///masih salah
+
+    adr_relasi P = first(L);
+    adr_relasi Q =  cariChildDiRelasi(L,X);
+    int total = 0;
+
+    if (Q != NULL){
+        while (P != NULL){
+            if (info(child(P)).memberID == X ){
+                total = total + info(parent(P)).harga;
+            } else {
+                P = next(P);
+            }
+        }
+    } else {
+        cout << "Anda belum mengambil kaset" <<endl;
+    }
+    cout << total<<endl;
+    return total;
+
 }
 
-//void hitungHargaKaset(List_relasi L,){
+void printChildTOParent(List_relasi &LR,int X){
 
-//}
+    adr_relasi P = first(LR);
+    adr_relasi Q = cariParentDiRelasi(LR,X);
+
+    if ( Q != NULL) {
+        cout << "\nKaset " << info(parent(Q)).judul << " dibeli oleh : \n"; ///masih kurang perfect ngeluarin judul kaset
+        while (P != NULL){
+            if (info(parent(P)).kodeKaset == X){
+                cout << "-"<< info(child(P)).Nama <<endl;
+            }
+            P = next(P);
+        }
+        bersih();
+    } else {
+       cout << "Kaset belum dibeli oleh siapapun" <<endl;
+       bersih();
+    }
+}

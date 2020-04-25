@@ -50,4 +50,7 @@ void deleteParentdiRelasi(List_relasi &LR,int AP);
 void deleteChilDiRelasi(List_relasi &LR, int AP);
 void deleteListRelasi(List_relasi &LR,int Par,int Chi);
 
+void printChildTOParent(List_relasi &LR,int X);
+int hitungHargaKaset(List_relasi L,int X);
+
 #endif // LIST_RELASI_H_INCLUDED
