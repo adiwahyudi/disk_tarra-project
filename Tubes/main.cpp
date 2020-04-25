@@ -23,7 +23,7 @@ void Menu(){
     adr_parent Par;
     adr_relasi Rel;
 
-    int pilihMenu,Nmr,INPUT;
+    int pilihMenu,Nmr,INPUT,INPUT2;
     do{
         cout << "=========== PEMBELIAN KASET ===========" << endl;
         cout << "1. Membuat Data Member" << endl;
@@ -79,19 +79,35 @@ void Menu(){
                 cin >> INPUT;
                 if (findElmChild(ListC,INPUT) != NULL){
                     if (cariChildDiRelasi(ListR,INPUT) != NULL){
-                        ///
+                        deleteChilDiRelasi(ListR,INPUT);
+                        deleteListChild(ListC,INPUT);
+                    } else {
+                        cout<<"ABC";
+                        deleteListChild(ListC,INPUT);
                     }
+                } else {
+                    cout << "Tidak ada data" <<endl;
                 }
+                deleteListChild(ListC,INPUT);
             } else if(Nmr == 2){
                 cout << "ID Kaset yang akan di hapus : ";
                 cin >> INPUT;
-                if (findElmParent(ListP,INPUT) != NULL) {
+                /*if (findElmParent(ListP,INPUT) != NULL) {
                     if(cariParentDiRelasi(ListR,INPUT) != NULL) {
                         deleteParentdiRelasi(ListR,INPUT);
                     } else {
                         deleteListParent(ListP,INPUT);
                     }
                 }
+                */
+                deleteListParent(ListP,INPUT);
+
+            } else if (Nmr == 3) {
+                cout <<"ID Kaset : ";
+                cin >> INPUT;
+                cout <<"ID Member : ";
+                cin >> INPUT2;
+                deleteListRelasi(ListR,INPUT2,INPUT);
             }
 
             break;

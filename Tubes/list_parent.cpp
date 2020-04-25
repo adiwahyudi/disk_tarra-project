@@ -56,18 +56,13 @@ void deleteFirstParent(List_parent &L, adr_parent &P){
     }
 }
 void deleteLastParent(List_parent &L, adr_parent &P){ ///masih bingung lupa euy
-   if (first(L) != NULL){
-        if (first(L) == last(L)){
-            deleteFirstParent(L,P);
-        } else {
-            adr_parent Q = first(L);
-            while ( next(Q) != last(L) ) {
-                Q = next(Q);
-            }
-            last(L) = Q;
-            next(last(L))= NULL;
-        }
-   }
+    P = last(L);
+    adr_parent Q = first(L);
+    while (next(Q) != last(L)){
+        Q = next(Q);
+    }
+    last(L) = Q;
+    next(Q) = NULL;
 }
 
 void deleteAfterParent(List_parent &L,adr_parent Prec, adr_parent &P){
@@ -85,7 +80,7 @@ void insertSortParent(List_parent &L, adr_parent Q){
                 insertLastParent(L,Q);
             } else {
                 adr_parent P = first(L);
-                while (P != NULL && info(Q).kodeKaset > info(P).kodeKaset){
+                while (P != NULL && info(Q).kodeKaset > info(next(P)).kodeKaset){
                     P = next(P);
                 }
                 insertAfterParent(L,P,Q);
@@ -101,19 +96,24 @@ void insertSortParent(List_parent &L, adr_parent Q){
 
 void deleteListParent(List_parent &L, int x){
     adr_parent P;
-    if(info(P).kodeKaset == x ){
-        deleteFirstParent(L,P);
-    } else if(info(last(L)).kodeKaset == x){
-        deleteLastParent(L,P);
-    } else {
-        adr_parent Q = first(L);
-        while (P != NULL && info(next(Q)).kodeKaset != x) {
-               P = Q;
-               Q = next(Q);
+    if (first(L) != NULL){
+        if(info(P).kodeKaset == x ){
+            deleteFirstParent(L,P);
+        } else if(info(last(L)).kodeKaset == x){
+            deleteLastParent(L,P);
+        } else {
+            adr_parent Q = first(L);
+            while (P != NULL && info(Q).kodeKaset < x) {
+                   P = Q;
+                   Q = next(Q);
+                }
+            deleteAfterParent(L,P,Q);
             }
-        deleteAfterParent(L,P,Q);
-        }
+    } else {
+        cout << "Tidak ada kaset" <<endl;
+        bersih();
     }
+}
 
 void dealokasiParent (adr_parent &P){
     delete P;

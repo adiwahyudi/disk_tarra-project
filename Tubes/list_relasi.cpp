@@ -122,7 +122,25 @@ void case3(List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_pare
     }
     bersih();
 }
+/*adr_relasi cariChild(List_relasi &L,int C){
 
+    adr_relasi P = first(L);
+
+    while (P != NULL && info(child(P)).memberID != C){
+        P = next(P);
+    }
+    return P;
+}
+adr_relasi cariParent(List_relasi &L,int C){
+
+    adr_relasi P = first(L);
+
+    while (P != NULL && info(parent(P)).kodeKaset != C){
+        P = next(P);
+    }
+    return P;
+}
+*/
 adr_relasi cariParentDiRelasi(List_relasi LR,int x){
 
     adr_relasi P = first(LR);
@@ -142,20 +160,21 @@ adr_relasi cariChildDiRelasi(List_relasi LR,int x){
     adr_relasi P = first(LR);
 
     while (P != NULL) {
+        cout<<"A";
         if (info(child(P)).memberID == x){
             return P;
         } else {
             P = next(P);
         }
     }
-    return P;
+    return NULL;
 }
 
 void deleteParentdiRelasi(List_relasi &LR,int AP) {
 
     adr_relasi P,Q,Z;
     Z = first(LR);
-    while (P != NULL){
+    while (cariParentDiRelasi(LR,AP) != NULL){
         if (info(parent(first(LR))).kodeKaset == AP ){
             deleteFirstRelasi(LR,P);
             dealokasiRelasi(P);
@@ -167,6 +186,7 @@ void deleteParentdiRelasi(List_relasi &LR,int AP) {
             while (cariParentDiRelasi(LR,info(parent(P)).kodeKaset) != NULL){
                 if (info(next(parent(Q))).kodeKaset == AP){
                     deleteAfterRelasi(Q,next(Q));
+                    dealokasiRelasi(Q);
                 }
                 Q = next(Q);
             }
@@ -175,26 +195,30 @@ void deleteParentdiRelasi(List_relasi &LR,int AP) {
 }
 
 void deleteChilDiRelasi(List_relasi &LR, int AP){
+    adr_relasi P,Q;
+    Q = first(LR);
 
-    adr_relasi P,Q,Z;
-    Z = first(LR);
-    while (P != NULL){
-        if (info(child(first(LR))).memberID == AP ){
+    while (cariChildDiRelasi(LR,AP) != NULL){
+        if(info(child(first(LR))).memberID == AP ){
+            cout<<"A";
             deleteFirstRelasi(LR,P);
             dealokasiRelasi(P);
-        } else if (info(child(last(LR))).memberID == AP ){
+        } else if (info(child(last(LR))).memberID == AP){
+            cout<<"B";
             deleteLastRelasi(LR,P);
             dealokasiRelasi(P);
         } else {
-            Q = first(LR);
-            while (cariParentDiRelasi(LR,info(child(P)).memberID) != NULL){
-                if (info(next(child(Q))).memberID == AP){
-                    deleteAfterRelasi(Q,next(Q));
+            adr_relasi Q = first(LR);
+            while (P != NULL && info(child(Q)).memberID < AP) {
+                   P = Q;
+                   Q = next(Q);
                 }
-                Q = next(Q);
+                cout<<"C";
+            deleteAfterRelasi(P,Q);
+            dealokasiRelasi(P);
             }
         }
-    }
+        Q = next(Q);
 }
 
 void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
@@ -218,3 +242,7 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
         }
     }
 }
+
+//void hitungHargaKaset(List_relasi L,){
+
+//}
