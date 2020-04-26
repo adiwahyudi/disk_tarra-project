@@ -177,11 +177,9 @@ void deleteParentdiRelasi(List_relasi &LR,int AP) {
 void deleteChilDiRelasi(List_relasi &LR, int AP){
     adr_relasi P;
     if(info(child(first(LR))).memberID == AP ){
-        cout<<"A";
         deleteFirstRelasi(LR,P);
         dealokasiRelasi(P);
     } else if (info(child(last(LR))).memberID == AP){
-        cout<<"B";
         deleteLastRelasi(LR,P);
         dealokasiRelasi(P);
     } else {
@@ -190,7 +188,6 @@ void deleteChilDiRelasi(List_relasi &LR, int AP){
                P = Q;
                Q = next(Q);
             }
-            cout<<"C";
         deleteAfterRelasi(P,Q);
         dealokasiRelasi(P);
         }
@@ -221,26 +218,27 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
 
     } else {
         cout << "Tidak ada data pembelian" <<endl;
-        bersih();
     }
 }
 
-int hitungHargaKaset(List_relasi &L, int X){ ///masih salah
+void hitungHargaKaset(List_relasi &L, int X){ ///masih salah
 
     adr_relasi Q = first(L);
+    string nama;
     int total = 0;
 
-    while (Q != NULL){
-        if (info(child(Q)).memberID == X ){
-            total = total + info(parent(Q)).harga;
-            cout << "A";
-        } else {
-            cout << "Anda belum mengambil kaset" <<endl;
+    if (cariChildDiRelasi(L,X) != NULL){
+        while (Q != NULL){
+            if (info(child(Q)).memberID == X ){
+                total = total + info(parent(Q)).harga;
+                nama = info(child(Q)).Nama;
+            }
+            Q = next(Q);
         }
-        Q = next(Q);
+        cout << "Jadi total belanjaan kaset dari "<<nama <<" adalah Rp. "<< total;
+    } else {
+        cout << "Anda belum mengambil satupun kaset" <<endl;
     }
-    return total;
-
 }
 
 void jenisKasetFavorit(List_relasi &L, adr_relasi P){
@@ -256,10 +254,14 @@ void jenisKasetFavorit(List_relasi &L, adr_relasi P){
         }
         P = next(P);
     }
+    cout << "Kaset film laku sebanyak " <<film << " dan kaset musik laku sebanyak "<< musik <<".";;
+    cout << "\nJadi jenis kaset ter-favorit adalah ";
     if(film > musik){
-        cout << "Film" << endl;
-    }else {
-        cout << "Musik " << endl;
+        cout << "Film dengan jumlah " << film << " kaset." <<endl;
+    }else if (film < musik ) {
+        cout << "Musik dengan jumlah " << musik << " kaset." <<endl;
+    } else {
+        cout <<"Sama banyak yaitu " << film << " kaset." <<endl;
     }
 }
 
@@ -276,9 +278,7 @@ void printChildTOParent(List_relasi &LR,int X){
             }
             P = next(P);
         }
-        bersih();
     } else {
        cout << "Kaset belum dibeli oleh siapapun" <<endl;
-       bersih();
     }
 }

@@ -31,7 +31,7 @@ void Menu(){
         cout << "3. Membeli Kaset " << endl;
         cout << "4. Menampilkan Data " << endl;
         cout << "5. Hapus Data " << endl;
-        cout << "6. Jenis kaset favorit" << endl;
+        cout << "6. Jenis Kaset Favorit" << endl;
         cout << "7. Total Harga Kaset" << endl;
         cout << "0. Quit" << endl;
         cout << "\nChoose Menu : ";
@@ -68,6 +68,7 @@ void Menu(){
                 cout << "ID Kaset : ";
                 cin >> INPUT;
                 printChildTOParent(ListR,INPUT);
+                bersih();
             }
             break;
         case 5:
@@ -115,13 +116,19 @@ void Menu(){
 
             break;
         case 6:
-            cout << "Jenis kaset favorit : ";
             jenisKasetFavorit(ListR, Rel);
+            bersih();
             break;
         case 7:
             cout << "Masukan ID Member Anda : ";
             cin >> INPUT;
-            hitungHargaKaset(ListR, INPUT);
+            if (findElmChild(ListC,INPUT)!= NULL){
+                hitungHargaKaset(ListR, INPUT);
+                bersih();
+            } else {
+                cout << "Maaf data member tidak ditemukan" <<endl;
+                bersih();
+            }
             break;
         }
         if(pilihMenu == 0){
