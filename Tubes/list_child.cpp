@@ -151,7 +151,7 @@ void printChild(List_child L) {
 }
 
 
-adr_child findElmChild(List_child L, int x) { ///Untuk Sementara NoIdent semestinya ID dari Pengguna.
+adr_child findElmChild(List_child L, int x) {
     adr_child P = first(L);
     do{
         if(info(P).memberID == x ) {
@@ -179,6 +179,9 @@ void case1(List_child &L,infotype_child &ITC) {
     cin >> ITC.NoIdent;
 
     ITC.memberID = randomIDmember();
+    if(findElmChild(L,ITC.memberID)!=NULL){ ///Masih gagal check duplicate ID
+        ITC.memberID = randomIDmember();
+    }
     insertSortChild(L,ITC);
 
     cout << "\nSelamat data berhasil anda dibuat!" <<endl;

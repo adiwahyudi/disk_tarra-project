@@ -113,12 +113,16 @@ void case3(List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_pare
     cout << "ID Kaset\t: ";
     cin >> cariKodeKaset;
     AC = findElmChild(LC,cariIDmem);AP = findElmParent(LP,cariKodeKaset);
-    if (AC && AP) {
-       AR = alokasiRelasi(AP,AC);
-       insertLastRelasi(LR,AR);
-       cout << "Selamat anda berhasil membeli kaset!" << endl;
+    if (findElmRelasi(LR,cariIDmem,cariKodeKaset) == NULL){
+        if (AC && AP) {
+            AR = alokasiRelasi(AP,AC);
+            insertLastRelasi(LR,AR);
+            cout << "\nSelamat anda berhasil membeli kaset!" << endl;
+        } else {
+            cout << "\nMaaf anda tidak terdaftar sebagai Member"<<endl;
+        }
     } else {
-        cout << "Maaf anda tidak terdaftar sebagai Member"<<endl;
+        cout << "\nMaaf anda sudah mengambil kaset tersebut" <<endl;
     }
     bersih();
 }
@@ -152,8 +156,7 @@ adr_relasi cariChildDiRelasi(List_relasi LR,int x){
 
 void deleteParentdiRelasi(List_relasi &LR,int AP) {
 
-    adr_relasi P,Q,Z;
-    Z = first(LR);
+    adr_relasi P,Q;
     while (cariParentDiRelasi(LR,AP) != NULL){
         if (info(parent(first(LR))).kodeKaset == AP ){
             deleteFirstRelasi(LR,P);
@@ -255,7 +258,8 @@ void jenisKasetFavorit(List_relasi &L, adr_relasi P){
         P = next(P);
     }
     cout << "Kaset film laku sebanyak " <<film << " dan kaset musik laku sebanyak "<< musik <<".";;
-    cout << "\nJadi jenis kaset ter-favorit adalah ";
+    cout << endl;
+    cout << "Jadi jenis kaset ter-favorit adalah ";
     if(film > musik){
         cout << "Film dengan jumlah " << film << " kaset." <<endl;
     }else if (film < musik ) {
@@ -274,7 +278,7 @@ void printChildTOParent(List_relasi &LR,int X){
         cout << "\nKaset " << info(parent(Q)).judul << " dibeli oleh : \n"; ///masih kurang perfect ngeluarin judul kaset
         while (P != NULL){
             if (info(parent(P)).kodeKaset == X){
-                cout << "-"<< info(child(P)).Nama <<endl;
+                cout << "- "<< info(child(P)).Nama <<endl;
             }
             P = next(P);
         }

@@ -1,3 +1,10 @@
+/*
+    Program Pembelian Kaset (Multi Linked List dengan Bentuk A3)
+    Parent = Single Linked List yaitu Kaset
+    Child = Double Circular Linked List yaitu Member
+    Relasi = Single Linked List
+
+*/
 #include <iostream>
 #include <stdlib.h>
 
@@ -75,7 +82,7 @@ void Menu(){
             cout << "1. Menghapus Data Member " << endl;
             cout << "2. Menghapus Data Kaset " << endl;
             cout << "3. Tidak jadi membeli " << endl;
-            cout << " \nChoose Menu";
+            cout << " \nChoose Menu : ";
             cin >> Nmr;
             if(Nmr == 1){
                 cout << "ID Member yang akan di hapus : ";

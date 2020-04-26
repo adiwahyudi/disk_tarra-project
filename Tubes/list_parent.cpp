@@ -86,7 +86,7 @@ void insertSortParent(List_parent &L, adr_parent Q){
                 insertAfterParent(L,P,Q);
             }
         } else {
-            cout << "anskjasjkasjlk" << endl;
+            cout << "Maaf data sudah ada " << endl;
         }
     } else {
         insertFirstParent(L,Q);
@@ -96,6 +96,7 @@ void insertSortParent(List_parent &L, adr_parent Q){
 
 void deleteListParent(List_parent &L, int x){
     adr_parent P;
+    P = first(L);
     if (first(L) != NULL){
         if(info(P).kodeKaset == x ){
             deleteFirstParent(L,P);
@@ -122,23 +123,22 @@ void dealokasiParent (adr_parent &P){
 void printParent(List_parent L) {
    adr_parent P = first(L);
 
-   while ( P != NULL) {
-       cout << "\nKode Kaset\t: " << info(P).kodeKaset << endl;
-       cout << "Tipe Kaset\t: " << info(P).tipe << endl;
-       cout << "Judul Kaset\t: " << info(P).judul << endl;
-       cout << "Tahun Kaset\t: " << info(P).tahunKaset << endl;
-       cout << "Genre Kaset\t: " << info(P).genre << endl;
-       cout << "Harga Kaset\t: " << info(P).harga << endl;
-       P = next(P);
-       cout<<endl;
-   }
+   if (P != NULL){
+       cout << "Daftar Kaset yang tersedia : \n" <<endl;
+       while ( P != NULL) {
+           cout << "Kode Kaset\t: " << info(P).kodeKaset << endl;
+           cout << "Tipe Kaset\t: " << info(P).tipe << endl;
+           cout << "Judul Kaset\t: " << info(P).judul << endl;
+           cout << "Tahun Kaset\t: " << info(P).tahunKaset << endl;
+           cout << "Genre Kaset\t: " << info(P).genre << endl;
+           cout << "Harga Kaset\t: " << info(P).harga << endl;
+           P = next(P);
+           cout<<endl;
+       }
+    } else {
+       cout << "Tidak ada kaset yang tersedia" <<endl;
+    }
 }
-
-
-
-
-
-
 adr_parent findElmParent(List_parent L, int x) {
     adr_parent P = first(L);
 
@@ -172,9 +172,10 @@ void case2(List_parent &LP,infotype_parent &ITP){
     cin >> ITP.tahunKaset;
     cout << "Masukkan Genre\t\t: ";
     cin >> ITP.genre;
-
     ITP.kodeKaset = randomkodeKaset();
-
+    if (findElmParent(LP,ITP.kodeKaset) != NULL){
+       ITP.kodeKaset = randomkodeKaset();
+    }
     cout << "\nSelamat anda berhasil menambahkan data kaset!" <<endl;
     cout << "Kode kaset "<< ITP.judul << " adalah " << ITP.kodeKaset <<endl;
     insertSortParent(LP,alokasiParent(ITP));
