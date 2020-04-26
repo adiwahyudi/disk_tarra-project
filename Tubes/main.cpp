@@ -31,7 +31,7 @@ void Menu(){
         cout << "3. Membeli Kaset " << endl;
         cout << "4. Menampilkan Data " << endl;
         cout << "5. Hapus Data " << endl;
-        cout << "6. Rekomendasi Film" << endl;
+        cout << "6. Jenis kaset favorit" << endl;
         cout << "7. Total Harga Kaset" << endl;
         cout << "0. Quit" << endl;
         cout << "\nChoose Menu : ";
@@ -115,12 +115,13 @@ void Menu(){
 
             break;
         case 6:
-
+            cout << "Jenis kaset favorit : ";
+            jenisKasetFavorit(ListR, Rel);
             break;
         case 7:
             cout << "Masukan ID Member Anda : ";
             cin >> INPUT;
-            hitungHargaKaset(ListR,INPUT);
+            hitungHargaKaset(ListR, INPUT);
             break;
         }
         if(pilihMenu == 0){

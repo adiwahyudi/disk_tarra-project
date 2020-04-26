@@ -134,6 +134,11 @@ void printParent(List_parent L) {
    }
 }
 
+
+
+
+
+
 adr_parent findElmParent(List_parent L, int x) {
     adr_parent P = first(L);
 
@@ -173,6 +178,5 @@ void case2(List_parent &LP,infotype_parent &ITP){
     cout << "\nSelamat anda berhasil menambahkan data kaset!" <<endl;
     cout << "Kode kaset "<< ITP.judul << " adalah " << ITP.kodeKaset <<endl;
     insertSortParent(LP,alokasiParent(ITP));
-    /// insertsorted belum dibuat
     bersih();
 }

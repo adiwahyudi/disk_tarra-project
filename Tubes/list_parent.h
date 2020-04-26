@@ -51,6 +51,8 @@ void dealokasiParent(adr_parent &P);
 adr_parent findElmParent(List_parent L, int x);
 void printParent(List_parent L);
 
+
+
 int randomkodeKaset();
 void case2(List_parent &LP,infotype_parent &ITP);
 

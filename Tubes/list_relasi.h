@@ -51,6 +51,7 @@ void deleteChilDiRelasi(List_relasi &LR, int AP);
 void deleteListRelasi(List_relasi &LR,int Par,int Chi);
 
 void printChildTOParent(List_relasi &LR,int X);
-int hitungHargaKaset(List_relasi L,int X);
+int hitungHargaKaset(List_relasi &L, int X);
+void jenisKasetFavorit(List_relasi &L, adr_relasi P);
 
 #endif // LIST_RELASI_H_INCLUDED

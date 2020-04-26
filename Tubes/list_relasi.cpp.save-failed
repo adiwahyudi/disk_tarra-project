@@ -245,8 +245,6 @@ int hitungHargaKaset(List_relasi &L, int X){ ///masih salah
 
 void jenisKasetFavorit(List_relasi &L, adr_relasi P){
     int musik, film;
-    musik = 0;
-    film = 0;
     P = first(L);
     while (P != NULL){
         if(info(parent(P)).tipe == "Musik"){
@@ -256,11 +254,8 @@ void jenisKasetFavorit(List_relasi &L, adr_relasi P){
         }
         P = next(P);
     }
-    if(film > musik){
-        cout << "Film" << endl;
-    }else {
-        cout << "Musik " << endl;
-    }
+    cout << musik << endl;
+    cout << film << endl;
 }
 
 void printChildTOParent(List_relasi &LR,int X){
