@@ -31,7 +31,7 @@ Dimana program ini terdiri atas 7 Menu :<br>
 - 5.2. Menghapus Data Kaset _( Delete parent , by delete all relation relate to parent first then delete the parent )_
 - 5.3. Tidak jadi membeli _( Hanya hapus relasi, berdasarkan input ID member dan ID kaset )_ 
 
-**6. Jenis Kaset Favorit** _( Case Functionality I , menghitung tipe kaset apa terfavorit berdasarkan tipe kaset apa yang jual laku terbanyuak)_<br>
+**6. Jenis Kaset Favorit** _( Case Functionality I , menghitung tipe kaset apa terfavorit berdasarkan tipe kaset apa yang jual laku terbanyak)_<br>
 **7. Total Harga Kaset** _( Case Functionality II, count total price of Kaset of by search the ID Member )_
 
 ### **Semua dari menu berasal dari skema penilaian,jadi semua yang diminta di skema sudah terpenuhi.**
