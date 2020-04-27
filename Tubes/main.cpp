@@ -1,5 +1,5 @@
 /*
-    Program Pembelian Kaset (Multi Linked List dengan Bentuk A3)
+    Program Pembelian Kaset (Multi Linked List dengan Bentuk IIA dengan tipe A3)
     Parent = Single Linked List yaitu Kaset
     Child = Double Circular Linked List yaitu Member
     Relasi = Single Linked List
@@ -57,7 +57,7 @@ void Menu(){
         case 4:
             cout << "1. Menampilkan Data Member" << endl;
             cout << "2. Menampilkan Data Kaset " << endl;
-            cout << "3. Menampilkan Member dan Belanjaannya " << endl; /// Pas child ada di relasi terus child dihapus berhasil , tapi pas nampilin relasi gagal.
+            cout << "3. Menampilkan Member dan Belanjaannya " << endl;
             cout << "4. Menampilkan Kaset Dibeli oleh Siapa " << endl;
             cout << "\nChoose Menu : ";
             cin >> Nmr;
@@ -104,6 +104,7 @@ void Menu(){
                 if (findElmParent(ListP,INPUT) != NULL) {
                     if(cariParentDiRelasi(ListR,INPUT) != NULL) {
                         deleteParentdiRelasi(ListR,INPUT);
+                        deleteListParent(ListP,INPUT);
                     } else {
                         deleteListParent(ListP,INPUT);
                     }

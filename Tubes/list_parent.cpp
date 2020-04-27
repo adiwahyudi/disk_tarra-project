@@ -73,35 +73,31 @@ void deleteAfterParent(List_parent &L,adr_parent Prec, adr_parent &P){
 
 void insertSortParent(List_parent &L, adr_parent Q){
      if ( first(L) != NULL) {
-        if (findElmParent(L,info(Q).kodeKaset) == NULL){
-            if (info(Q).kodeKaset < info(first(L)).kodeKaset){
-                insertFirstParent(L,Q);
-            } else if (info(Q).kodeKaset > info(last(L)).kodeKaset) {
-                insertLastParent(L,Q);
-            } else {
-                adr_parent P = first(L);
-                while (P != NULL && info(Q).kodeKaset > info(next(P)).kodeKaset){
-                    P = next(P);
-                }
-                insertAfterParent(L,P,Q);
-            }
+        if (info(Q).kodeKaset < info(first(L)).kodeKaset){
+            insertFirstParent(L,Q);
+        } else if (info(Q).kodeKaset > info(last(L)).kodeKaset) {
+            insertLastParent(L,Q);
         } else {
-            cout << "Maaf data sudah ada " << endl;
+            adr_parent P = first(L);
+            while (P != NULL && info(Q).kodeKaset > info(next(P)).kodeKaset){
+                P = next(P);
+            }
+            insertAfterParent(L,P,Q);
         }
     } else {
         insertFirstParent(L,Q);
     }
-
 }
-
 void deleteListParent(List_parent &L, int x){
     adr_parent P;
     P = first(L);
     if (first(L) != NULL){
         if(info(P).kodeKaset == x ){
             deleteFirstParent(L,P);
+            dealokasiChild(P);
         } else if(info(last(L)).kodeKaset == x){
             deleteLastParent(L,P);
+            dealokasiChild(P);
         } else {
             adr_parent Q = first(L);
             while (Q != NULL && info(Q).kodeKaset < x) {
@@ -109,6 +105,7 @@ void deleteListParent(List_parent &L, int x){
                    Q = next(Q);
                 }
             deleteAfterParent(L,P,Q);
+            dealokasiChild(P);
             }
     } else {
         cout << "Tidak ada kaset" <<endl;
@@ -164,7 +161,6 @@ void case2(List_parent &LP,infotype_parent &ITP){
         ITP.harga = 100000;
         ITP.tipe = "Film";
     }
-
     cout << "Masukkan Judul\t\t: ";
     cin.get();
     getline(cin, ITP.judul);
@@ -172,10 +168,12 @@ void case2(List_parent &LP,infotype_parent &ITP){
     cin >> ITP.tahunKaset;
     cout << "Masukkan Genre\t\t: ";
     cin >> ITP.genre;
+
     ITP.kodeKaset = randomkodeKaset();
     if (findElmParent(LP,ITP.kodeKaset) != NULL){
        ITP.kodeKaset = randomkodeKaset();
     }
+
     cout << "\nSelamat anda berhasil menambahkan data kaset!" <<endl;
     cout << "Kode kaset "<< ITP.judul << " adalah " << ITP.kodeKaset <<endl;
     insertSortParent(LP,alokasiParent(ITP));

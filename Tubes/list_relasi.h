@@ -39,8 +39,6 @@ void dealokasiRelasi(adr_relasi &P);
 adr_relasi findElmRelasi(List_relasi L, int diC, int diP);
 void printRelasi(List_relasi L);
 
-//adr_relasi cariChild(List_relasi &L,int C);/
-//adr_relasi cariChild(List_relasi &L,int C);
 
 void bersih();
 void case3 (List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR);

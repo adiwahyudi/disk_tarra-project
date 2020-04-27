@@ -100,21 +100,23 @@ void deleteAfterChild(List_child &L, adr_child Prec, adr_child &P){
     }
 }
 
-void insertSortChild(List_child &L, infotype_child x){
-    adr_child Q;
+void insertSortChild(List_child &L, adr_child Q){
+    adr_child R;
     adr_child P = first(L);
-    if(P == NULL || info(first(L)).memberID >= x.memberID){
-        insertFirstChild(L, alokasiChild(x));
-    } else if (info(last(L)).memberID <= x.memberID){
-        insertLastChild(L, alokasiChild(x));
+
+    if(P == NULL || info(first(L)).memberID >= info(Q).memberID){
+        insertFirstChild(L,Q);
+    } else if (info(last(L)).memberID <= info(Q).memberID){
+        insertLastChild(L,Q);
     } else {
         do {
-            Q = P;
+            R = P;
             P = next(P);
-        } while(P != first(L) && info(P).memberID < x.memberID);
-        insertAfterChild(L, Q, alokasiChild(x));
+        } while(P != first(L) && info(P).memberID < info(Q).memberID);
+        insertAfterChild(L,R,Q);
     }
 }
+
 
 void deleteListChild(List_child &L, int x){
     adr_child P, Q;
@@ -153,12 +155,14 @@ void printChild(List_child L) {
 
 adr_child findElmChild(List_child L, int x) {
     adr_child P = first(L);
-    do{
-        if(info(P).memberID == x ) {
-            return P;
-        }
-        P = next(P);
-    } while(P != first(L));
+    if (P != NULL){
+        do{
+            if(info(P).memberID == x ) {
+                return P;
+            }
+            P = next(P);
+        } while(P != first(L));
+    }
     return NULL;
 }
 
@@ -179,10 +183,10 @@ void case1(List_child &L,infotype_child &ITC) {
     cin >> ITC.NoIdent;
 
     ITC.memberID = randomIDmember();
-    if(findElmChild(L,ITC.memberID)!=NULL){ ///Masih gagal check duplicate ID
+    if(findElmChild(L,ITC.memberID) != NULL){
         ITC.memberID = randomIDmember();
     }
-    insertSortChild(L,ITC);
+    insertSortChild(L,alokasiChild(ITC));
 
     cout << "\nSelamat data berhasil anda dibuat!" <<endl;
     cout << "ID Member anda : "<<ITC.memberID<<" mohon untuk diingat!"<<endl;
