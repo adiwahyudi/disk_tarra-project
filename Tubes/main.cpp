@@ -58,7 +58,8 @@ void Menu(){
             cout << "1. Menampilkan Data Member" << endl;
             cout << "2. Menampilkan Data Kaset " << endl;
             cout << "3. Menampilkan Member dan Belanjaannya " << endl;
-            cout << "4. Menampilkan Kaset Dibeli oleh Siapa " << endl;
+            cout << "4. Menampilkan Kaset Dibeli oleh Siapa saja " << endl;
+            cout << "5. Menampilkan Semua Kaset Dibeli oleh Siapa saja" <<endl;
             cout << "\nChoose Menu : ";
             cin >> Nmr;
             system("CLS");
@@ -76,6 +77,9 @@ void Menu(){
                 cin >> INPUT;
                 printChildTOParent(ListR,INPUT);
                 bersih();
+            } else  if (Nmr == 5){
+                Child4EachParent(ListR,ListP);
+                bersih();
             }
             break;
         case 5:
@@ -84,6 +88,7 @@ void Menu(){
             cout << "3. Tidak jadi membeli " << endl;
             cout << " \nChoose Menu : ";
             cin >> Nmr;
+            system("CLS");
             if(Nmr == 1){
                 cout << "ID Member yang akan di hapus : ";
                 cin >> INPUT;
@@ -128,15 +133,8 @@ void Menu(){
             bersih();
             break;
         case 7:
-            cout << "Masukan ID Member Anda : ";
-            cin >> INPUT;
-            if (findElmChild(ListC,INPUT)!= NULL){
-                hitungHargaKaset(ListR, INPUT);
-                bersih();
-            } else {
-                cout << "Maaf data member tidak ditemukan" <<endl;
-                bersih();
-            }
+           hitungHargaKaset(ListR,ListC);
+           bersih();
             break;
         }
         if(pilihMenu == 0){

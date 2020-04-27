@@ -11,11 +11,10 @@
 #define last(L) L.last
 
 #define info(P) P->info
-
 using namespace std;
 
 struct InfoPenyewa {
-    int NoIdent;
+    string NoIdent;
     string Nama;
     int memberID;
 };
@@ -34,23 +33,23 @@ struct List_child{
     adr_child last;
 };
 
-void createListChild(List_child &L);
-void insertFirstChild(List_child &L, adr_child P);
-void insertLastChild(List_child &L, adr_child P);
-void insertAfterChild(List_child &L, adr_child &Prec, adr_child P);
-void deleteFirstChild(List_child &L, adr_child &P);
-void deleteLastChild(List_child &L, adr_child &P);
-void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P);
+void createListChild(List_child &L); /// I Wayan Adi Wahyudi (1301194084)
+void insertFirstChild(List_child &L, adr_child P); /// I Wayan Adi Wahyudi (1301194084)
+void insertLastChild(List_child &L, adr_child P); /// I Wayan Adi Wahyudi (1301194084)
+void insertAfterChild(List_child &L, adr_child &Prec, adr_child P); /// I Wayan Adi Wahyudi (1301194084)
+void deleteFirstChild(List_child &L, adr_child &P); /// I Wayan Adi Wahyudi (1301194084)
+void deleteLastChild(List_child &L, adr_child &P); /// I Wayan Adi Wahyudi (1301194084)
+void deleteAfterChild(List_child &L,adr_child Prec, adr_child &P); /// I Wayan Adi Wahyudi (1301194084)
 
-void insertSortChild(List_child &L, adr_child Q);
-void deleteListChild(List_child &L, int x);
+void insertSortChild(List_child &L, adr_child Q); /// I Wayan Adi Wahyudi (1301194084)
+void deleteListChild(List_child &L, int x); /// I Wayan Adi Wahyudi (1301194084)
 
-adr_child alokasiChild(infotype_child x);
-void dealokasiChild(adr_child &P);
-adr_child findElmChild(List_child L, int x);
-void printChild(List_child L);
+adr_child alokasiChild(infotype_child x); /// I Wayan Adi Wahyudi (1301194084)
+void dealokasiChild(adr_child &P); /// I Wayan Adi Wahyudi (1301194084)
+adr_child findElmChild(List_child L, int x); /// I Wayan Adi Wahyudi (1301194084)
+void printChild(List_child L); /// I Wayan Adi Wahyudi (1301194084)
 
-int randomIDmember();
-void case1(List_child &L,infotype_child &ITC);
+int randomIDmember(); /// I Wayan Adi Wahyudi (1301194084)
+void case1(List_child &L,infotype_child &ITC); /// I Wayan Adi Wahyudi (1301194084)
 
 #endif // LIST_CHILD_H_INCLUDED

@@ -3,7 +3,8 @@
 void createListRelasi(List_relasi &L){
     first(L) = NULL;
     last(L) = NULL;
-}
+}/// I Wayan Adi Wahyudi (1301194084)
+
 void insertFirstRelasi(List_relasi &L, adr_relasi P){
     if (first(L) != NULL){
         next(P) = first(L);
@@ -14,7 +15,7 @@ void insertFirstRelasi(List_relasi &L, adr_relasi P){
         last(L) = P;
         next(P) = NULL;
     }
-}
+}/// I Wayan Adi Wahyudi (1301194084)
 
 void insertLastRelasi(List_relasi &L, adr_relasi P){
 
@@ -25,14 +26,14 @@ void insertLastRelasi(List_relasi &L, adr_relasi P){
         last(L) = P;
         next(P) = NULL;
     }
-}
+}/// I Wayan Adi Wahyudi (1301194084)
 
 void insertAfterRelasi(adr_relasi Prec, adr_relasi P){
 
     next(P) = next(Prec);
     next(Prec) = P;
 
-}
+}/// I Wayan Adi Wahyudi (1301194084)
 
 void deleteFirstRelasi(List_relasi &L, adr_relasi &P){
 
@@ -66,7 +67,7 @@ adr_relasi alokasiRelasi( adr_parent P, adr_child C){
     child(Q) = C;
     parent(Q) = P;
     return Q;
-}
+}/// I Wayan Adi Wahyudi (1301194084)
 
 void dealokasiRelasi(adr_relasi &P){
     delete P;
@@ -86,17 +87,19 @@ adr_relasi findElmRelasi(List_relasi L, int diC, int diP){
 
 void printRelasi(List_relasi L){
     adr_relasi P = first(L);
+    int i = 1;
     if (P != NULL) {
         while (P != NULL){
-        cout << info(child(P)).Nama <<" membeli kaset berjudul ";
-        cout << info(parent(P)).judul <<" seharga Rp. " << info(parent(P)).harga <<endl;
-        P = next(P);
+            cout <<i<<"."<<info(child(P)).Nama <<" membeli kaset berjudul ";
+            cout << info(parent(P)).judul <<" seharga Rp. " << info(parent(P)).harga <<endl;
+            P = next(P);
+            i++;
         }
     } else {
         cout << "Tidak ada data pembelian" <<endl;
     }
     cout<<endl;
-}
+}/// I Wayan Adi Wahyudi (1301194084)
 
 void bersih (){
     cout<<endl;
@@ -125,7 +128,8 @@ void case3(List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_pare
         cout << "\nMaaf anda sudah mengambil kaset tersebut" <<endl;
     }
     bersih();
-}
+}/// I Wayan Adi Wahyudi (1301194084)
+
 adr_relasi cariParentDiRelasi(List_relasi LR,int x){
 
     adr_relasi P = first(LR);
@@ -156,7 +160,7 @@ adr_relasi cariChildDiRelasi(List_relasi LR,int x){
 
 void deleteParentdiRelasi(List_relasi &LR,int AP) {
 
-    adr_relasi P,Q;
+    adr_relasi P,Q,Z;
     while (cariParentDiRelasi(LR,AP) != NULL){
         if (info(parent(first(LR))).kodeKaset == AP ){
             deleteFirstRelasi(LR,P);
@@ -179,20 +183,22 @@ void deleteParentdiRelasi(List_relasi &LR,int AP) {
 
 void deleteChilDiRelasi(List_relasi &LR, int AP){
     adr_relasi P;
-    if(info(child(first(LR))).memberID == AP ){
-        deleteFirstRelasi(LR,P);
-        dealokasiRelasi(P);
-    } else if (info(child(last(LR))).memberID == AP){
-        deleteLastRelasi(LR,P);
-        dealokasiRelasi(P);
-    } else {
-        adr_relasi Q = first(LR);
-        while (P != NULL && info(child(Q)).memberID < AP) {
-               P = Q;
-               Q = next(Q);
+    while (cariChildDiRelasi(LR,AP) != NULL) {
+        if(info(child(first(LR))).memberID == AP ){
+            deleteFirstRelasi(LR,P);
+            dealokasiRelasi(P);
+        } else if (info(child(last(LR))).memberID == AP){
+            deleteLastRelasi(LR,P);
+            dealokasiRelasi(P);
+        } else {
+            adr_relasi Q = first(LR);
+            while (P != NULL && info(child(Q)).memberID < AP) {
+                   P = Q;
+                   Q = next(Q);
+                }
+            deleteAfterRelasi(P,Q);
+            dealokasiRelasi(Q);
             }
-        deleteAfterRelasi(P,Q);
-        dealokasiRelasi(P);
         }
     }
 
@@ -216,6 +222,7 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
                 Q = next(Q);
             }
             deleteAfterRelasi(P,Q);
+            dealokasiRelasi(Q);
             cout << "Selamat anda tidak jadi membeli!" <<endl;
         }
 
@@ -224,25 +231,33 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
     }
 }
 
-void hitungHargaKaset(List_relasi &L, int X){ ///masih salah
+void hitungHargaKaset(List_relasi &L,List_child &LC){ ///masih salah
 
     adr_relasi Q = first(L);
     string nama;
+    int input;
     int total = 0;
 
-    if (cariChildDiRelasi(L,X) != NULL){
-        while (Q != NULL){
-            if (info(child(Q)).memberID == X ){
-                total = total + info(parent(Q)).harga;
-                nama = info(child(Q)).Nama;
+    cout << "Masukan ID Member Anda : ";
+    cin >> input;
+
+    if(findElmChild(LC,input)){
+        if (cariChildDiRelasi(L,input) != NULL){
+            while (Q != NULL){
+                if (info(child(Q)).memberID == input ){
+                    total = total + info(parent(Q)).harga;
+                    nama = info(child(Q)).Nama;
+                }
+                Q = next(Q);
             }
-            Q = next(Q);
+            cout << "\nJadi total belanjaan kaset dari "<<nama <<" adalah Rp. "<< total <<endl;
+        } else {
+            cout << "\nAnda belum mengambil satupun kaset" <<endl;
         }
-        cout << "Jadi total belanjaan kaset dari "<<nama <<" adalah Rp. "<< total;
-    } else {
-        cout << "Anda belum mengambil satupun kaset" <<endl;
+    }else {
+        cout << "\nMaaf data member tidak ditemukan" <<endl;
     }
-}
+}/// I Wayan Adi Wahyudi (1301194084)
 
 void jenisKasetFavorit(List_relasi &L, adr_relasi P){
     int musik, film;
@@ -265,7 +280,7 @@ void jenisKasetFavorit(List_relasi &L, adr_relasi P){
     }else if (film < musik ) {
         cout << "Musik dengan jumlah " << musik << " kaset." <<endl;
     } else {
-        cout <<"Sama banyak yaitu " << film << " kaset." <<endl;
+        cout <<"sama banyak yaitu " << film << " kaset." <<endl;
     }
 }
 
@@ -285,4 +300,30 @@ void printChildTOParent(List_relasi &LR,int X){
     } else {
        cout << "Kaset belum dibeli oleh siapapun" <<endl;
     }
-}
+}/// I Wayan Adi Wahyudi (1301194084)
+
+void Child4EachParent (List_relasi &LR,List_parent &LP){
+    adr_parent P;
+    adr_relasi R;
+
+    cout << "DAFTAR SEMUA KASET DIBELI OLEH SIAPA SAJA"<<endl;
+
+    P = first(LP);
+    int i = 1;
+    while (P != NULL){
+        cout << i <<".Kaset "<< info(P).judul <<" dibeli oleh : "<<endl;
+        R = first(LR);
+        int j = 1;
+        while (R != NULL){
+            if (info(P).kodeKaset == info(parent(R)).kodeKaset) {
+                cout <<"\t"<<j<<"."<<info(child(R)).Nama <<endl;
+                j++;
+            }
+            R = next(R);
+        }
+        cout<<endl;
+        i++;
+        P = next(P);
+    }
+
+}/// I Wayan Adi Wahyudi (1301194084)

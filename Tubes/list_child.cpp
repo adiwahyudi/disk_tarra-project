@@ -124,15 +124,18 @@ void deleteListChild(List_child &L, int x){
     if(info(first(L)).memberID == x){
         deleteFirstChild(L,Q);
         dealokasiChild(Q);
+        cout<<"\nData berhasil dihapus" <<endl;
     } else if(info(prev(P)).memberID == x){
         deleteLastChild(L, Q);
         dealokasiChild(Q);
+        cout<<"\nData berhasil dihapus" <<endl;
     } else {
         do {
             P = next(P);
         } while (P != first(L) && info(prev(P)).memberID != x);
         deleteAfterChild(L, prev(prev(P)), Q);
         dealokasiChild(Q);
+        cout<<"\nData berhasil dihapus" <<endl;
     }
 }
 
