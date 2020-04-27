@@ -34,4 +34,4 @@ Dimana program ini terdiri atas 7 Menu :<br>
 **6. Jenis Kaset Favorit** _( Case Functionality I , menghitung tipe kaset apa terfavorit berdasarkan tipe kaset apa yang jual laku terbanyak)_<br>
 **7. Total Harga Kaset** _( Case Functionality II, count total price of Kaset of by search the ID Member )_
 
-### **Semua dari menu berasal dari skema penilaian,jadi semua yang diminta di skema sudah terpenuhi.**
+### **Semua menu berasal dari skema penilaian,jadi semua yang diminta di skema sudah terpenuhi.**
