@@ -4,6 +4,13 @@
     Child = Double Circular Linked List yaitu Member
     Relasi = Single Linked List
 
+    Penjelasan Program : Program ini diawali dengan membuat member (insertSortedChild) membuat kaset (insertSortedParent)
+    lalu untuk membeli(connect) menerima input ID Member dan ID Kaset lalu akan di masukan ke dalam relasi (InsertLastRelasi).
+
+    Untuk penjelasan lebih lengkap bisa di cek di README.md di Github kami.
+
+    untuk mengenai apa saja bagian yang kami buat sudah kami letakan Nama dan NIM di setiap Fungsi dan Prosedurnya.
+
 */
 #include <iostream>
 #include <stdlib.h>
@@ -13,6 +20,8 @@
 #include "list_relasi.h"
 
 using namespace std;
+
+///Untuk main dibuat oleh kami berdua
 
 void Menu(){
     infotype_parent parent;

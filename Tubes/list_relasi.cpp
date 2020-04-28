@@ -90,7 +90,7 @@ void printRelasi(List_relasi L){
     int i = 1;
     if (P != NULL) {
         while (P != NULL){
-            cout <<i<<"."<<info(child(P)).Nama <<" membeli kaset berjudul ";
+            cout <<i<<"."<<info(child(P)).Nama <<" membeli kaset "<<info(parent(P)).tipe<<" berjudul ";
             cout << info(parent(P)).judul <<" seharga Rp. " << info(parent(P)).harga <<endl;
             P = next(P);
             i++;
