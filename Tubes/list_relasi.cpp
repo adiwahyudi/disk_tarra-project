@@ -40,7 +40,7 @@ void deleteFirstRelasi(List_relasi &L, adr_relasi &P){
     P = first(L);
     first(L) = next(P);
     next(P) = NULL;
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteLastRelasi(List_relasi &L, adr_relasi &P){
     P = first(L);
@@ -50,7 +50,7 @@ void deleteLastRelasi(List_relasi &L, adr_relasi &P){
     last(L) = P;
     P = next(P);
     next(last(L)) = NULL;
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteAfterRelasi(adr_relasi Prec, adr_relasi &P){
 
@@ -58,7 +58,7 @@ void deleteAfterRelasi(adr_relasi Prec, adr_relasi &P){
     next(Prec) = next(P);
     next(P) = NULL;
 
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 adr_relasi alokasiRelasi( adr_parent P, adr_child C){
 
@@ -83,7 +83,7 @@ adr_relasi findElmRelasi(List_relasi L, int diC, int diP){
         }
     }
     return NULL;
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void printRelasi(List_relasi L){
     adr_relasi P = first(L);
@@ -105,7 +105,8 @@ void bersih (){
     cout<<endl;
     system("pause > 0 | echo tekan enter untuk melanjutkan..");
     system("CLS");
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
+
 void case3(List_child &LC,List_parent &LP,List_relasi &LR,adr_child &AC,adr_parent &AP,adr_relasi &AR) {
 
     int cariIDmem;
@@ -142,7 +143,7 @@ adr_relasi cariParentDiRelasi(List_relasi LR,int x){
         }
     }
     return P;
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 adr_relasi cariChildDiRelasi(List_relasi LR,int x){
 
@@ -156,11 +157,11 @@ adr_relasi cariChildDiRelasi(List_relasi LR,int x){
         }
     }
     return NULL;
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteParentdiRelasi(List_relasi &LR,int AP) {
 
-    adr_relasi P,Q,Z;
+    adr_relasi P,Q;
     while (cariParentDiRelasi(LR,AP) != NULL){
         if (info(parent(first(LR))).kodeKaset == AP ){
             deleteFirstRelasi(LR,P);
@@ -179,7 +180,7 @@ void deleteParentdiRelasi(List_relasi &LR,int AP) {
             }
         }
     }
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteChilDiRelasi(List_relasi &LR, int AP){
     adr_relasi P;
@@ -198,9 +199,9 @@ void deleteChilDiRelasi(List_relasi &LR, int AP){
                 }
             deleteAfterRelasi(P,Q);
             dealokasiRelasi(Q);
-            }
         }
     }
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
 
@@ -229,7 +230,7 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
     } else {
         cout << "Tidak ada data pembelian" <<endl;
     }
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void hitungHargaKaset(List_relasi &L,List_child &LC){ ///masih salah
 
@@ -282,7 +283,7 @@ void jenisKasetFavorit(List_relasi &L, adr_relasi P){
     } else {
         cout <<"sama banyak yaitu " << film << " kaset." <<endl;
     }
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void printChildTOParent(List_relasi &LR,int X){
 

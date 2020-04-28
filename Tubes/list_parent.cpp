@@ -6,7 +6,7 @@
 void createListParent(List_parent &L) {
     first(L) = NULL;
     last(L) = NULL;
-} /// I Wayan Adi Wahyudi (1301194084)
+}  ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 adr_parent alokasiParent(infotype_parent x) {
     adr_parent P;
@@ -21,7 +21,7 @@ adr_parent alokasiParent(infotype_parent x) {
     next(P) = NULL;
     return P;
 
-} /// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void insertFirstParent(List_parent &L, adr_parent P) {
     if(first(L) == NULL) {
@@ -31,20 +31,20 @@ void insertFirstParent(List_parent &L, adr_parent P) {
         next(P) = first(L);
         first(L) = P;
     }
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void insertAfterParent(List_parent &L, adr_parent Prec, adr_parent P){
 
     next(P) = next(Prec);
     next(Prec) = P;
 
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void insertLastParent(List_parent &L, adr_parent P){
        next(last(L)) = P;
        last(L) = P;
 
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteFirstParent(List_parent &L, adr_parent &P){
     if (first(L) != NULL){
@@ -56,7 +56,7 @@ void deleteFirstParent(List_parent &L, adr_parent &P){
             next(P) = NULL;
         }
     }
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteLastParent(List_parent &L, adr_parent &P){
     P = first(L);
@@ -66,14 +66,14 @@ void deleteLastParent(List_parent &L, adr_parent &P){
     last(L) = P;
     P = next(P);
     next(last(L)) = NULL;
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteAfterParent(List_parent &L,adr_parent Prec, adr_parent &P){
 
     P = next(Prec);
     next(Prec) = next(P);
     next(P) = NULL;
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void insertSortParent(List_parent &L, adr_parent Q){
      if ( first(L) != NULL) {
@@ -91,7 +91,8 @@ void insertSortParent(List_parent &L, adr_parent Q){
     } else {
         insertFirstParent(L,Q);
     }
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
+
 void deleteListParent(List_parent &L, int x){
     adr_parent P;
     P = first(L);
@@ -118,11 +119,11 @@ void deleteListParent(List_parent &L, int x){
         cout << "Tidak ada kaset" <<endl;
         bersih();
     }
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void dealokasiParent (adr_parent &P){
     delete P;
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void printParent(List_parent L) {
    adr_parent P = first(L);
@@ -142,7 +143,7 @@ void printParent(List_parent L) {
     } else {
        cout << "Tidak ada kaset yang tersedia" <<endl;
     }
-}/// I Wayan Adi Wahyudi (1301194084)
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 adr_parent findElmParent(List_parent L, int x) {
     adr_parent P = first(L);
@@ -151,12 +152,13 @@ adr_parent findElmParent(List_parent L, int x) {
             P = next(P);
         }
     return P;
-}/// I Wayan Adi Wahyudi (1301194084)
+}///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 int randomkodeKaset(){
     int rndm = 100 + rand() % 999;
     return rndm;
-}
+} ///Muhammad Ikram Kaer Sinapoy(1301193341)
+
 void case2(List_parent &LP,infotype_parent &ITP){
     string jenis;
     cout << "Pilih Jenis Kaset ( Film / Musik ): ";
@@ -186,4 +188,4 @@ void case2(List_parent &LP,infotype_parent &ITP){
     cout << "Kode kaset "<< ITP.judul << " adalah " << ITP.kodeKaset <<endl;
     insertSortParent(LP,alokasiParent(ITP));
     bersih();
-}/// I Wayan Adi Wahyudi (1301194084)
+}///Muhammad Ikram Kaer Sinapoy(1301193341)

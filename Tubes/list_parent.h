@@ -35,23 +35,23 @@ struct List_parent {
     adr_parent last;
 };
 
-void createListParent(List_parent &L);
-void insertFirstParent(List_parent &L, adr_parent P);
-void insertAfterParent(List_parent &L, adr_parent Prec, adr_parent P);
-void insertLastParent(List_parent &L, adr_parent P);
-void deleteFirstParent(List_parent &L, adr_parent &P);
-void deleteLastParent(List_parent &L, adr_parent &P);
-void deleteAfterParent(List_parent &L, adr_parent Prec, adr_parent &P);
+void createListParent(List_parent &L);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void insertFirstParent(List_parent &L, adr_parent P);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void insertAfterParent(List_parent &L, adr_parent Prec, adr_parent P);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void insertLastParent(List_parent &L, adr_parent P);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void deleteFirstParent(List_parent &L, adr_parent &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void deleteLastParent(List_parent &L, adr_parent &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void deleteAfterParent(List_parent &L, adr_parent Prec, adr_parent &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
 
-void insertSortParent(List_parent &L,adr_parent Q);
-void deleteListParent(List_parent &L, int x);
+void insertSortParent(List_parent &L,adr_parent Q);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void deleteListParent(List_parent &L, int x);///Muhammad Ikram Kaer Sinapoy(1301193341)
 
-adr_parent alokasiParent(infotype_parent x);
-void dealokasiParent(adr_parent &P);
-adr_parent findElmParent(List_parent L, int x);
-void printParent(List_parent L);
+adr_parent alokasiParent(infotype_parent x);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void dealokasiParent(adr_parent &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
+adr_parent findElmParent(List_parent L, int x);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void printParent(List_parent L);///Muhammad Ikram Kaer Sinapoy(1301193341)
 
-int randomkodeKaset();
-void case2(List_parent &LP,infotype_parent &ITP);
+int randomkodeKaset();///Muhammad Ikram Kaer Sinapoy(1301193341)
+void case2(List_parent &LP,infotype_parent &ITP);///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 #endif // LIST_PARENT_H_INCLUDED
