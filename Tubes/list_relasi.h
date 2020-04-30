@@ -32,7 +32,7 @@ void insertLastRelasi(List_relasi &L, adr_relasi P);/// I Wayan Adi Wahyudi (130
 void insertAfterRelasi(adr_relasi Prec, adr_relasi P);/// I Wayan Adi Wahyudi (1301194084)
 void deleteFirstRelasi(List_relasi &L, adr_relasi &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
 void deleteLastRelasi(List_relasi &L, adr_relasi &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
-void deleteAfterRelasi(adr_relasi Prec, adr_relasi &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
+void deleteAfterRelasi(List_relasi &L,adr_relasi Prec, adr_relasi &P);///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 adr_relasi alokasiRelasi( adr_parent P, adr_child C);/// I Wayan Adi Wahyudi (1301194084)
 void dealokasiRelasi(adr_relasi &P);///Muhammad Ikram Kaer Sinapoy(1301193341)

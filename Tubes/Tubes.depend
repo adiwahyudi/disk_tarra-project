@@ -41,20 +41,20 @@
 	<iostream>
 	<stdlib.h>
 
-1588050271 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\main.cpp
+1588232645 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\main.cpp
 	<iostream>
 	<stdlib.h>
 	"list_parent.h"
 	"list_child.h"
 	"list_relasi.h"
 
-1588048486 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.h
+1588232827 d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.h
 	<iostream>
 	<stdlib.h>
 	"list_parent.h"
 	"list_child.h"
 
-1588049290 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
+1588234492 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
 	"list_relasi.h"
 
 1588042501 d:\strukdat\tugasbesarstd\tubes\list_relasi.h

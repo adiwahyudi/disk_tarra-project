@@ -37,9 +37,15 @@ void insertAfterRelasi(adr_relasi Prec, adr_relasi P){
 
 void deleteFirstRelasi(List_relasi &L, adr_relasi &P){
 
-    P = first(L);
-    first(L) = next(P);
-    next(P) = NULL;
+     if (first(L) != NULL){
+        if (first(L) == last(L)) {
+            first(L) = NULL;
+            last(L) = NULL;
+        } else {
+            first(L) = next(first(L));
+            next(P) = NULL;
+        }
+    }
 } ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
 void deleteLastRelasi(List_relasi &L, adr_relasi &P){
@@ -52,7 +58,7 @@ void deleteLastRelasi(List_relasi &L, adr_relasi &P){
     next(last(L)) = NULL;
 } ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
-void deleteAfterRelasi(adr_relasi Prec, adr_relasi &P){
+void deleteAfterRelasi(List_relasi &L,adr_relasi Prec, adr_relasi &P){
 
     P = next(Prec);
     next(Prec) = next(P);
@@ -173,7 +179,7 @@ void deleteParentdiRelasi(List_relasi &LR,int AP) {
             Q = first(LR);
             while (cariParentDiRelasi(LR,info(parent(P)).kodeKaset) != NULL){
                 if (info(next(parent(Q))).kodeKaset == AP){
-                    deleteAfterRelasi(Q,next(Q));
+                    deleteAfterRelasi(LR,Q,next(Q));
                     dealokasiRelasi(Q);
                 }
                 Q = next(Q);
@@ -193,11 +199,11 @@ void deleteChilDiRelasi(List_relasi &LR, int AP){
             dealokasiRelasi(P);
         } else {
             adr_relasi Q = first(LR);
-            while (P != NULL && info(child(Q)).memberID < AP) {
+            while (P != NULL && info(child(Q)).memberID != AP) {
                    P = Q;
                    Q = next(Q);
                 }
-            deleteAfterRelasi(P,Q);
+            deleteAfterRelasi(LR,P,Q);
             dealokasiRelasi(Q);
         }
     }
@@ -218,11 +224,14 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
             cout << "Selamat anda tidak jadi membeli!" <<endl;
         } else {
             adr_relasi Q = first(LR);
-            while (Q != NULL && info(child(Q)).memberID < Chi && info(parent(Q)).kodeKaset < Par) {
+            while (Q != NULL && info(child(Q)).memberID != Chi && info(parent(Q)).kodeKaset != Par) {
                 P = Q;
                 Q = next(Q);
             }
-            deleteAfterRelasi(P,Q);
+            if ( Q == NULL){
+                cout<<"A"<<endl;
+            }
+            deleteAfterRelasi(LR,P,Q);
             dealokasiRelasi(Q);
             cout << "Selamat anda tidak jadi membeli!" <<endl;
         }
@@ -232,7 +241,7 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
     }
 } ///Muhammad Ikram Kaer Sinapoy(1301193341)
 
-void hitungHargaKaset(List_relasi &L,List_child &LC){ ///masih salah
+void hitungHargaKaset(List_relasi &L,List_child &LC){
 
     adr_relasi Q = first(L);
     string nama;
@@ -291,22 +300,19 @@ void printChildTOParent(List_relasi &LR,int X){
     adr_relasi Q = cariParentDiRelasi(LR,X);
 
     if ( Q != NULL) {
-        cout << "\nKaset " << info(parent(Q)).judul << " dibeli oleh : \n"; ///masih kurang perfect ngeluarin judul kaset
-        while (P != NULL){
+        cout << "\nKaset " << info(parent(Q)).judul << " dibeli oleh : \n";
             if (info(parent(P)).kodeKaset == X){
                 cout << "- "<< info(child(P)).Nama <<endl;
             }
             P = next(P);
-        }
-    } else {
+        }else {
        cout << "Kaset belum dibeli oleh siapapun" <<endl;
-    }
-}/// I Wayan Adi Wahyudi (1301194084)
+        }
+} /// I Wayan Adi Wahyudi (1301194084)
 
 void Child4EachParent (List_relasi &LR,List_parent &LP){
     adr_parent P;
     adr_relasi R;
-
     cout << "DAFTAR SEMUA KASET DIBELI OLEH SIAPA SAJA"<<endl;
 
     P = first(LP);

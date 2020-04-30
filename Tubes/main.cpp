@@ -128,9 +128,9 @@ void Menu(){
                 bersih();
 
             } else if (Nmr == 3) {
-                cout <<"ID Kaset : ";
-                cin >> INPUT;
                 cout <<"ID Member : ";
+                cin >> INPUT;
+                cout <<"ID Kaset : ";
                 cin >> INPUT2;
                 deleteListRelasi(ListR,INPUT2,INPUT);
                 bersih();
