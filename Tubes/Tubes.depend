@@ -7,10 +7,10 @@
 	<iostream>
 	<stdlib.h>
 
-1587872254 source:d:\strukdat\tugasbesarstd\tubes\list_relasi.cpp
+1588252548 source:d:\strukdat\tugasbesarstd\tubes\list_relasi.cpp
 	"list_relasi.h"
 
-1588041628 source:d:\strukdat\tugasbesarstd\tubes\main.cpp
+1588250860 source:d:\strukdat\tugasbesarstd\tubes\main.cpp
 	<iostream>
 	<stdlib.h>
 	"list_parent.h"
@@ -57,7 +57,7 @@
 1588234492 source:d:\adi\telkom university\informatika\tugasbesarstd\tubes\list_relasi.cpp
 	"list_relasi.h"
 
-1588042501 d:\strukdat\tugasbesarstd\tubes\list_relasi.h
+1588250860 d:\strukdat\tugasbesarstd\tubes\list_relasi.h
 	<iostream>
 	<stdlib.h>
 	"list_parent.h"

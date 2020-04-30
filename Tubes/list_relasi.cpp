@@ -228,10 +228,8 @@ void deleteListRelasi(List_relasi &LR,int Par,int Chi) {
                 P = Q;
                 Q = next(Q);
             }
-            if ( Q == NULL){
-                cout<<"A"<<endl;
-            }
-            deleteAfterRelasi(LR,P,Q);
+
+            deleteAfterRelasi(LR,Q,P);
             dealokasiRelasi(Q);
             cout << "Selamat anda tidak jadi membeli!" <<endl;
         }
